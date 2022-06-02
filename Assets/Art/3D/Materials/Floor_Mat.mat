@@ -40,7 +40,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _AmbientOclussion: 1
+    - _MaxDistance: 0
     - _Metallic: 0
+    - _MinDistance: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0
@@ -48,6 +50,7 @@ Material:
     - _ColorB: {r: 0.1321122, g: 0.074065454, b: 0.6886792, a: 0}
     - _ColorG: {r: 0.38867286, g: 0.35443217, b: 0.7169812, a: 0}
     - _ColorR: {r: 0.21431114, g: 0.6603774, b: 0.24074773, a: 0}
+    - _PlayerPosition: {r: 0, g: 0, b: -0.15, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4718048062660779551
 MonoBehaviour:

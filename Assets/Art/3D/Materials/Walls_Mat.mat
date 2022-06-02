@@ -40,7 +40,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _AmbientOclussion: 1
+    - _BlendOpacity: 0
+    - _DistortionPower: 0.02
+    - _DistortionScale: 20
+    - _DistortionSpeed: 5
+    - _MaxDistance: 2.79
     - _Metallic: 0
+    - _MinDistance: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0
@@ -48,6 +54,8 @@ Material:
     - _ColorB: {r: 0, g: 0, b: 1, a: 0}
     - _ColorG: {r: 0, g: 1, b: 0, a: 0}
     - _ColorR: {r: 1, g: 0, b: 0, a: 0}
+    - _DistortionColor: {r: 0.7264151, g: 0.37965468, b: 0.37965468, a: 0}
+    - _PlayerPosition: {r: 0.23, g: 0, b: -0.17, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4718048062660779551
 MonoBehaviour:
