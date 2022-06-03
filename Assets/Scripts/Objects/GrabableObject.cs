@@ -18,7 +18,7 @@ public class GrabableObject : MonoBehaviour, IInteractable
     public void OnInteractBegin()
     {
         Debug.Log("Object interact begin");
-        MoveToLayer(transform, LayerMask.NameToLayer(GrabedObjectsLayer));
+        //MoveToLayer(transform, LayerMask.NameToLayer(GrabedObjectsLayer));
         OnLookedEnd();
     }
 
