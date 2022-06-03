@@ -45,7 +45,7 @@ public class ObjectGraber : MonoBehaviour
 
     private void GrabObject()
     {
-        if (InputEvents.GetInteract() && !_isObjectGrabed)
+        if (InputEvents.GetInteract() && !_isObjectGrabed && _isObjectDetected)
         {
             _detectedObject.OnInteractBegin();
             _isObjectGrabed = true;

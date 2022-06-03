@@ -65,6 +65,4 @@ public class CharacterInputActions : MonoBehaviour
             return false;
         }
     }
-
-
 }
