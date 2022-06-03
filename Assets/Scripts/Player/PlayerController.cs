@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController _characterController;
     private Vector3 _moveDirection = Vector3.zero;
     private float _rotationX = 0;
+    private float _movementDirectionY;
 
     [HideInInspector]
     public bool canMove = true;
@@ -47,16 +48,26 @@ public class PlayerController : MonoBehaviour
 
         float curSpeedX = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Horizontal") : 0;
+        _movementDirectionY = _moveDirection.y;
         _moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+        _moveDirection.y = _movementDirectionY;
     }
 
     private void ApplyGravity()
     {
-        _moveDirection.y -= Gravity * Time.deltaTime;
+        if (!_characterController.isGrounded)
+        {
+            _moveDirection.y -= Gravity * Time.deltaTime;
+        }
+        else
+        {
+            _moveDirection.y = 0;
+        }
     }
 
     private void Move()
     {
+        Debug.Log(_moveDirection);
         _characterController.Move(_moveDirection * Time.deltaTime);
     }
 
