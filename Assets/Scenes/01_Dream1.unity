@@ -1733,6 +1733,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8547126922681199570, guid: e731e6d381654e048a457643d0a346e9,
+        type: 3}
+      propertyPath: LookSpeed
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8547126922681199570, guid: e731e6d381654e048a457643d0a346e9,
+        type: 3}
+      propertyPath: WalkingSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8547126922681199572, guid: e731e6d381654e048a457643d0a346e9,
         type: 3}
       propertyPath: m_RootOrder
