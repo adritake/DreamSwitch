@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 
 public class PlayerController : MonoBehaviour
 {
+    public CharacterInputActions InputEvents;
+
     [Header("Movement")]
     public float WalkingSpeed = 7.5f;
     public float RunningSpeed = 11.5f;
@@ -23,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public bool canMove = true;
+    
 
     void Start()
     {
@@ -44,10 +48,10 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
-        bool isRunning = Input.GetKey(KeyCode.LeftShift);
+        bool isRunning = false;
 
-        float curSpeedX = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Vertical") : 0;
-        float curSpeedY = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Horizontal") : 0;
+        float curSpeedX = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputEvents.GetMovementAction().z : 0;
+        float curSpeedY = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputEvents.GetMovementAction().x : 0;
         _movementDirectionY = _moveDirection.y;
         _moveDirection = (forward * curSpeedX) + (right * curSpeedY);
         _moveDirection.y = _movementDirectionY;
@@ -74,10 +78,10 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove)
         {
-            _rotationX += -Input.GetAxis("Mouse Y") * LookSpeed;
+            _rotationX += -InputEvents.GetRotationAction().y * LookSpeed;
             _rotationX = Mathf.Clamp(_rotationX, -LookXLimit, LookXLimit);
             PlayerCamera.transform.localRotation = Quaternion.Euler(_rotationX, 0, 0);
-            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * LookSpeed, 0);
+            transform.rotation *= Quaternion.Euler(0, InputEvents.GetRotationAction().x * LookSpeed, 0);
         }
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ObjectGraber : MonoBehaviour
 {
+
+    public CharacterInputActions InputEvents;
+
     public Transform LookStart;
     public float GrabDistance;
     public Transform GrabPlace;
@@ -40,7 +43,7 @@ public class ObjectGraber : MonoBehaviour
 
     private void GrabObject()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !_isObjectGrabed)
+        if (InputEvents.GetInteract() && !_isObjectGrabed)
         {
             _detectedObject.OnInteractBegin();
             _isObjectGrabed = true;
