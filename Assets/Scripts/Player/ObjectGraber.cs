@@ -8,6 +8,7 @@ public class ObjectGraber : MonoBehaviour
     public float GrabDistance;
     public Transform GrabPlace;
     public LayerMask GrabableObjectsLayer;
+    public float GrabSpeed;
 
     private GrabableObject _detectedObject;
     private bool _isObjectDetected;
@@ -17,6 +18,7 @@ public class ObjectGraber : MonoBehaviour
     void Update()
     {
         DetectObject();
+        UseObject();
         GrabObject();
     }
 
@@ -40,13 +42,41 @@ public class ObjectGraber : MonoBehaviour
 
     private void GrabObject()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !_isObjectGrabed)
+        if (Input.GetKeyDown(KeyCode.E) && !_isObjectGrabed && _isObjectDetected)
         {
             _detectedObject.OnInteractBegin();
             _isObjectGrabed = true;
             _grabedObject = _detectedObject;
             Debug.Log("Object grabed");
+            StartCoroutine(MoveToGrabPlaceCoroutine());
         }
+    }
+
+    private void UseObject()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && _isObjectGrabed)
+        {
+            _grabedObject.OnInteractEnd();
+            _isObjectGrabed = false;
+            Debug.Log("Object used");
+
+            _grabedObject.transform.parent = null;
+        }
+    }
+
+    private IEnumerator MoveToGrabPlaceCoroutine()
+    {
+        _grabedObject.transform.LookAt(Camera.main.transform);
+
+        while(Vector3.Distance(_grabedObject.transform.position, GrabPlace.position) > 0.1f)
+        {
+            Vector3 translation = (GrabPlace.position - _grabedObject.transform.position).normalized * GrabSpeed * Time.deltaTime;
+            _grabedObject.transform.position += translation;
+
+            yield return null;
+        }
+        _grabedObject.transform.LookAt(Camera.main.transform);
+        _grabedObject.transform.parent = GrabPlace;
     }
 
     private void OnDrawGizmosSelected()

@@ -18,14 +18,14 @@ public class GrabableObject : MonoBehaviour, IInteractable
     public void OnInteractBegin()
     {
         Debug.Log("Object interact begin");
-        gameObject.layer = LayerMask.NameToLayer(GrabedObjectsLayer);
+        MoveToLayer(transform, LayerMask.NameToLayer(GrabedObjectsLayer));
         OnLookedEnd();
     }
 
     public void OnInteractEnd()
     {
         Debug.Log("Object interact end");
-        gameObject.layer = _initialLayer;
+        MoveToLayer(transform, _initialLayer);
     }
 
     public void OnLookedBegin()
@@ -46,5 +46,11 @@ public class GrabableObject : MonoBehaviour, IInteractable
         }
     }
     #endregion
-   
+
+    private void MoveToLayer(Transform root, int layer)
+    {
+        root.gameObject.layer = layer;
+        foreach (Transform child in root)
+            MoveToLayer(child, layer);
+    }
 }
