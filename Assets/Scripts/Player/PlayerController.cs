@@ -78,10 +78,10 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove)
         {
-            _rotationX += -InputEvents.GetRotationAction().y * LookSpeed;
+            _rotationX += -InputEvents.GetRotationAction().y * LookSpeed * Time.deltaTime;
             _rotationX = Mathf.Clamp(_rotationX, -LookXLimit, LookXLimit);
             PlayerCamera.transform.localRotation = Quaternion.Euler(_rotationX, 0, 0);
-            transform.rotation *= Quaternion.Euler(0, InputEvents.GetRotationAction().x * LookSpeed, 0);
+            transform.rotation *= Quaternion.Euler(0, InputEvents.GetRotationAction().x * LookSpeed * Time.deltaTime, 0);
         }
     }
 }

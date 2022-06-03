@@ -15,11 +15,6 @@ public class CharacterInputActions : MonoBehaviour
         _movementDirection = Vector3.zero;
     }
 
-    void Update()
-    {
-        Debug.Log(_movementDirection);
-    }
-
     public void OnInteract(InputAction.CallbackContext value)
     {
         _interact = value;
