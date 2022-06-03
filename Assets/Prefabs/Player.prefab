@@ -650,8 +650,8 @@ MonoBehaviour:
     m_ActionId: cb1d4cd6-9914-45d0-8cc8-058d80fc7ae8
     m_ActionName: Gamepad/CameraMouseY[/Mouse/delta/y]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Gamepad
+  m_DefaultControlScheme: Gamepad
+  m_DefaultActionMap: GameActions
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &8873429205788817617
@@ -683,7 +683,7 @@ MonoBehaviour:
   RunningSpeed: 11.5
   Gravity: 8
   PlayerCamera: {fileID: 8547126923163464448}
-  LookSpeed: 2
+  LookSpeed: 20
   LookXLimit: 85
   canMove: 1
 --- !u!114 &8547126922681199573
