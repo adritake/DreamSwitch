@@ -82,3 +82,6 @@ fmod_editor.log
 
 # Las carpetitas del demonio
 /UserSettings/*
+
+# El caché del demonio
+/SwitchIL2CPPCache/*

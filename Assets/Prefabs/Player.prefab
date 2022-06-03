@@ -262,6 +262,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8547126922681199572}
   - component: {fileID: 8547126922681199571}
+  - component: {fileID: 8547126921958518674}
+  - component: {fileID: 8873429205788817617}
   - component: {fileID: 8547126922681199570}
   - component: {fileID: 8547126922681199573}
   - component: {fileID: 4424509256602941598}
@@ -307,6 +309,129 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8547126921958518674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8547126922681199569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 77dd244f1fd4c3d4dad5cd17d0b1d984,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8873429205788817617}
+        m_TargetAssemblyTypeName: CharacterInputActions, Assembly-CSharp
+        m_MethodName: OnMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 32d670e7-a824-443b-bb37-483844d59135
+    m_ActionName: Gamepad/Walk[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8873429205788817617}
+        m_TargetAssemblyTypeName: CharacterInputActions, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c645a063-b3ab-4200-ae3b-f669f79c30df
+    m_ActionName: Gamepad/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8873429205788817617}
+        m_TargetAssemblyTypeName: CharacterInputActions, Assembly-CSharp
+        m_MethodName: OnRotation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a02dc9fe-3a35-405a-8932-93e718acc49b
+    m_ActionName: Gamepad/Camera
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8873429205788817617}
+        m_TargetAssemblyTypeName: CharacterInputActions, Assembly-CSharp
+        m_MethodName: OnMouseRotationX
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4beacc78-a98f-498f-a25f-03f277c26dff
+    m_ActionName: Gamepad/CameraMouseX[/Mouse/delta/x]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8873429205788817617}
+        m_TargetAssemblyTypeName: CharacterInputActions, Assembly-CSharp
+        m_MethodName: OnMouseRotationY
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cb1d4cd6-9914-45d0-8cc8-058d80fc7ae8
+    m_ActionName: Gamepad/CameraMouseY[/Mouse/delta/y]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gamepad
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &8873429205788817617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8547126922681199569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715af96a71a77e34495c94b388095a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8547126922681199570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9b64881f88e5d49b2daf39e8db3973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InputEvents: {fileID: 8873429205788817617}
   WalkingSpeed: 7.5
   RunningSpeed: 11.5
   Gravity: 8
@@ -354,6 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19afa21f949b69b42a328f85c5ca2cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InputEvents: {fileID: 8873429205788817617}
   LookStart: {fileID: 8547126923163464449}
   GrabDistance: 2
   GrabPlace: {fileID: 0}
@@ -425,7 +552,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 183
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
