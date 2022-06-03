@@ -67,7 +67,6 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        Debug.Log(_moveDirection);
         _characterController.Move(_moveDirection * Time.deltaTime);
     }
 

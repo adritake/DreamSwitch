@@ -42,8 +42,8 @@ Material:
     - _AmbientOclussion: 1
     - _BlendOpacity: 0
     - _DistortionPower: 0.02
-    - _DistortionScale: 20
-    - _DistortionSpeed: 5
+    - _DistortionScale: 50
+    - _DistortionSpeed: 0.1
     - _MaxDistance: 2.79
     - _Metallic: 0
     - _MinDistance: 0
@@ -55,7 +55,7 @@ Material:
     - _ColorG: {r: 0, g: 1, b: 0, a: 0}
     - _ColorR: {r: 1, g: 0, b: 0, a: 0}
     - _DistortionColor: {r: 0.7264151, g: 0.37965468, b: 0.37965468, a: 0}
-    - _PlayerPosition: {r: 1.5586563, g: 1.0799999, b: 44.25384, a: 0}
+    - _PlayerPosition: {r: -1.829623, g: 1.0799999, b: 7.027013, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4718048062660779551
 MonoBehaviour:

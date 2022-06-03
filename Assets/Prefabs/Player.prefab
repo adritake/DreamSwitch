@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 8547126922681199571}
   - component: {fileID: 8547126922681199570}
   - component: {fileID: 8547126922681199573}
+  - component: {fileID: 4424509256602941598}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -341,6 +342,24 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 7cbb4cee66d3123478dc0fd2a7154d40, type: 2}
   PlayerPositionParameterName: _PlayerPosition
   ApplyPositionOnStart: 1
+--- !u!114 &4424509256602941598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8547126922681199569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19afa21f949b69b42a328f85c5ca2cfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LookStart: {fileID: 8547126923163464449}
+  GrabDistance: 2
+  GrabPlace: {fileID: 0}
+  GrabableObjectsLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &8547126923163464477
 GameObject:
   m_ObjectHideFlags: 0
