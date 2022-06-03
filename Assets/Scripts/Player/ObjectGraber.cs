@@ -20,9 +20,13 @@ public class ObjectGraber : MonoBehaviour
 
     void Update()
     {
-        DetectObject();
         UseObject();
         GrabObject();
+    }
+
+    private void FixedUpdate()
+    {
+        DetectObject();
     }
 
     private void DetectObject()
