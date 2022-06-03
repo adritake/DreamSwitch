@@ -2,7 +2,7 @@
     "name": "InputSystem",
     "maps": [
         {
-            "name": "Gamepad",
+            "name": "GameActions",
             "id": "d6be184b-a3c9-4caa-97b7-6c1129acd393",
             "actions": [
                 {
@@ -55,7 +55,7 @@
                 {
                     "name": "Gamepad",
                     "id": "36837c9c-e3f0-496e-aa6e-1564be9cdfe6",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -187,7 +187,7 @@
                 {
                     "name": "Gamepad",
                     "id": "def879dd-d45b-4105-af39-5338ec9df276",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -266,9 +266,25 @@
     ],
     "controlSchemes": [
         {
-            "name": "Game",
-            "bindingGroup": "Game",
-            "devices": []
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
         }
     ]
 }

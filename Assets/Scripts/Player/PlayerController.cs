@@ -84,4 +84,10 @@ public class PlayerController : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, InputEvents.GetRotationAction().x * LookSpeed * Time.deltaTime, 0);
         }
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, transform.position + _moveDirection * 3);
+    }
 }
