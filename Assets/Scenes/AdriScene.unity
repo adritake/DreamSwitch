@@ -228,6 +228,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8547126921958518674, guid: e731e6d381654e048a457643d0a346e9,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: GameActions
+      objectReference: {fileID: 0}
+    - target: {fileID: 8547126921958518674, guid: e731e6d381654e048a457643d0a346e9,
+        type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Game
+      objectReference: {fileID: 0}
     - target: {fileID: 8547126922681199569, guid: e731e6d381654e048a457643d0a346e9,
         type: 3}
       propertyPath: m_Name
