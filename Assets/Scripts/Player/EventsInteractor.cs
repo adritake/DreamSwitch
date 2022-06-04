@@ -20,9 +20,9 @@ public class EventsInteractor : Interactor
                 pressedInteract = Input.GetKeyDown(KeyCode.E);
         #endif
 
-        if (pressedInteract && _isObjectDetected && _detectedObject is IChecklistEvent)
+        if (pressedInteract && _isObjectDetected && _detectedObject is ChecklistEvent)
         {
-            ((IChecklistEvent)_detectedObject).CompleteEvent();
+            ((ChecklistEvent)_detectedObject).CompleteEvent();
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToothBrush : MonoBehaviour, IInteractable, IChecklistEvent
+public class ToothBrush : ChecklistEvent
 {
     public float BrushTime;
     public float SingleBrushTime;
@@ -11,9 +11,7 @@ public class ToothBrush : MonoBehaviour, IInteractable, IChecklistEvent
     public Transform BrushPos2;
     public Transform BrushLookAt;
 
-    private PlayerController _player;
     private Collider _collider;
-    private bool _looked;
     private Vector3 _initialPosition;
     private Quaternion _initialRotation;
 
@@ -25,8 +23,10 @@ public class ToothBrush : MonoBehaviour, IInteractable, IChecklistEvent
         _initialRotation = transform.rotation;
     }
 
-    public void CompleteEvent()
+    public override void CompleteEvent()
     {
+        base.CompleteEvent();
+
         _player.CanMove = false;
         _collider.enabled = false;
         BrushingProcess();
@@ -46,31 +46,5 @@ public class ToothBrush : MonoBehaviour, IInteractable, IChecklistEvent
         transform.position = BrushPos1.position;
         transform.LookAt(BrushLookAt);
         transform.DOMove(BrushPos2.position, SingleBrushTime).SetLoops(5, LoopType.Yoyo).SetEase(Ease.InOutQuad);
-    }
-
-    public void OnInteractBegin()
-    {
-    }
-
-    public void OnInteractEnd()
-    {
-    }
-
-    public void OnLookedBegin()
-    {
-        if (!_looked)
-        {
-            _looked = true;
-            Debug.Log("Toothbrush look begin");
-        }
-    }
-
-    public void OnLookedEnd()
-    {
-        if (_looked)
-        {
-            _looked = false;
-            Debug.Log("Toothbrush look end");
-        }
     }
 }
