@@ -32,6 +32,7 @@ public abstract class ChecklistEvent : MonoBehaviour, IInteractable
         if (!_looked)
         {
             _looked = true;
+            ReticleUI.Instance.EnableReticle(true);
             Debug.Log(gameObject.name + " look begin");
         }
     }
@@ -41,6 +42,7 @@ public abstract class ChecklistEvent : MonoBehaviour, IInteractable
         if (_looked)
         {
             _looked = false;
+            ReticleUI.Instance.EnableReticle(false);
             Debug.Log(gameObject.name + " look end");
         }
     }

@@ -5,12 +5,14 @@ using UnityEngine;
 public class Shower : ChecklistEvent
 {
     public float ShowerTime;
+    public Transform LookAt;
     public ParticleSystem ShowerVFX;
 
     public override void CompleteEvent()
     {
         _player.CanMove = false;
         ShowerVFX.Play();
+        _player.LookAt(LookAt.position);
         Invoke(nameof(EndEvent), ShowerTime);
     }
 
