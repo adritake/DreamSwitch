@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{523b7d01-086f-4ff3-821b-cb2ba8b42898}">
+		<property name="assetPath">
+			<value>Bgm/Jovani Vázquez - Mascarilla.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>228.29859410430839</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{df47353f-a507-471c-9be8-e414cb59b518}</destination>
+		</relationship>
+	</object>
+</objects>
