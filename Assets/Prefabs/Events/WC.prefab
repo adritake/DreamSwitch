@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e6d53ee2ec6d7140b8f25629e4954a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EventName: WC
   PeeTime: 5
   LookPosition: {fileID: 1699562185428817361}
 --- !u!136 &1699562185439897524

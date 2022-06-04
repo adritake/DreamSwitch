@@ -18,5 +18,6 @@ public class Shower : ChecklistEvent
     {
         _player.CanMove = true;
         ShowerVFX.Stop();
+        LevelChecklistManager.Instance.CompleteEvent(EventName);
     }
 }

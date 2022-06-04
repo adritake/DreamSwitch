@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab7331b7bd3ae4439934cf95148f8b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EventName: TV
   WatchTime: 3
 --- !u!65 &2162013871634709134
 BoxCollider:

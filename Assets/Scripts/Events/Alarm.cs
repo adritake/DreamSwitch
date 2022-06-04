@@ -9,5 +9,6 @@ public class Alarm : ChecklistEvent
     {
         base.CompleteEvent();
         Debug.Log("Alarm End");
+        LevelChecklistManager.Instance.CompleteEvent(EventName);
     }
 }

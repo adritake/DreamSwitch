@@ -594,6 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 661ab552f2d703a468fafd8c5b8ff9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EventName: Wardrobe
   DressingTime: 2
   Clothes: {fileID: 5928272031202559068}
   ClothesEndPosition: {fileID: 0}

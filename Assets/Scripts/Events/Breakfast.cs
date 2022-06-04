@@ -22,6 +22,7 @@ public class Breakfast : ChecklistEvent
     private void EndEvent()
     {
         _player.CanMove = true;
+        LevelChecklistManager.Instance.CompleteEvent(EventName);
         Destroy(Toast);
     }
 }

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c06fe88dca9047642885b0b6648ec8f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EventName: Breakfast
   EatingTime: 2
   Toast: {fileID: 5341102918885673786}
   ToastEndPosition: {fileID: 0}

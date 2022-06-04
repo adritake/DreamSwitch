@@ -4,10 +4,12 @@ using UnityEngine;
 
 public abstract class ChecklistEvent : MonoBehaviour, IInteractable
 {
+    public string EventName;
+
     private bool _looked;
     protected PlayerController _player;
 
-    private void Start()
+    protected virtual void Start()
     {
         _player = FindObjectOfType<PlayerController>();
     }

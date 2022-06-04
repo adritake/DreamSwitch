@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e253c56038a2ca4d9f2676c9259b33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EventName: Alarm
 --- !u!65 &2569751751009380307
 BoxCollider:
   m_ObjectHideFlags: 0

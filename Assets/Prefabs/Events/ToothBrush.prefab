@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702cc74ab42ec7c42b1fd0a22ca66497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EventName: ToothBrush
   BrushTime: 3
   SingleBrushTime: 0.5
   BrushPos1: {fileID: 0}

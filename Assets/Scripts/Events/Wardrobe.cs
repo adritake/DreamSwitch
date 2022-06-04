@@ -22,5 +22,6 @@ public class Wardrobe : ChecklistEvent
     {
         _player.CanMove = true;
         Destroy(Clothes);
+        LevelChecklistManager.Instance.CompleteEvent(EventName);
     }
 }

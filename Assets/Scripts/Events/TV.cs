@@ -11,11 +11,12 @@ public class TV : ChecklistEvent
         base.CompleteEvent();
         _player.CanMove = false;
         _player.LookAt(transform.position);
-        Invoke(nameof(ReleasePlayer), WatchTime);
+        Invoke(nameof(EndEvent), WatchTime);
     }
 
-    private void ReleasePlayer()
+    private void EndEvent()
     {
         _player.CanMove = true;
+        LevelChecklistManager.Instance.CompleteEvent(EventName);
     }
 }

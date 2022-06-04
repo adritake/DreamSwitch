@@ -15,8 +15,9 @@ public class ToothBrush : ChecklistEvent
     private Vector3 _initialPosition;
     private Quaternion _initialRotation;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         _collider = GetComponent<Collider>();
         _initialPosition = transform.position;
         _initialRotation = transform.rotation;
@@ -37,7 +38,8 @@ public class ToothBrush : ChecklistEvent
         _player.CanMove = true;
         _collider.enabled = true;
         transform.position = _initialPosition;
-        transform.rotation = _initialRotation; ;
+        transform.rotation = _initialRotation;
+        LevelChecklistManager.Instance.CompleteEvent(EventName);
     }
 
     private void BrushingProcess()
