@@ -10,6 +10,7 @@ public class Shower : ChecklistEvent
 
     public override void CompleteEvent()
     {
+        base.CompleteEvent();
         _player.CanMove = false;
         ShowerVFX.Play();
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/Shower", gameObject);
@@ -21,6 +22,5 @@ public class Shower : ChecklistEvent
     {
         _player.CanMove = true;
         ShowerVFX.Stop();
-        LevelChecklistManager.Instance.CompleteEvent(EventName);
     }
 }

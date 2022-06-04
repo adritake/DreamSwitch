@@ -21,6 +21,5 @@ public class WC : ChecklistEvent
     {
         _player.CanMove = true;
         _player.GetComponent<PlayerVFXManager>().StopPeeVFX();
-        LevelChecklistManager.Instance.CompleteEvent(EventName);
     }
 }

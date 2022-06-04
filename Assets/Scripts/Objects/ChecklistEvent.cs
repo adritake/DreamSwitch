@@ -16,6 +16,7 @@ public abstract class ChecklistEvent : MonoBehaviour, IInteractable
 
     public virtual void CompleteEvent()
     {
+        LevelChecklistManager.Instance.CompleteEvent(EventName);
         Debug.Log("Completed event : " + gameObject.name);
     }
 

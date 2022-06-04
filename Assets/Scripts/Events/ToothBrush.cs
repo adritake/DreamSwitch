@@ -41,7 +41,6 @@ public class ToothBrush : ChecklistEvent
         _collider.enabled = true;
         transform.position = _initialPosition;
         transform.rotation = _initialRotation;
-        LevelChecklistManager.Instance.CompleteEvent(EventName);
     }
 
     private void BrushingProcess()
