@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - DoNotRender
-  - GrabableObject
+  - InteractableObject
   - GrabedObject
   - 
   - 

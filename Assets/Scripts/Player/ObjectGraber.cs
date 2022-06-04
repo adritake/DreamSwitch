@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectGraber : MonoBehaviour
+public class ObjectGraber : Interactor
 {
-
-    public Transform LookStart;
-    public float GrabDistance;
+    [Header("Graber")]
     public Transform GrabPlace;
-    public LayerMask GrabableObjectsLayer;
     public float GrabSpeed;
 
-    private GrabableObject _detectedObject;
-    private bool _isObjectDetected;
     private GrabableObject _grabedObject;
     private bool _isObjectGrabed;
 
@@ -22,88 +17,50 @@ public class ObjectGraber : MonoBehaviour
         GrabObject();
     }
 
-    private void FixedUpdate()
-    {
-        DetectObject();
-    }
-
-    private void DetectObject()
-    {
-        if(Physics.Raycast(LookStart.position, LookStart.forward, out RaycastHit hitInfo, GrabDistance, GrabableObjectsLayer))
-        {
-            _isObjectDetected = true;
-            _detectedObject = hitInfo.collider.gameObject.GetComponent<GrabableObject>();
-            _detectedObject.OnLookedBegin();
-        }
-        else
-        {
-            _isObjectDetected = false;
-            if (_detectedObject)
-            {
-                _detectedObject.OnLookedEnd();
-            }
-        }
-    }
-
     private void GrabObject()
     {
-        #if !UNITY_EDITOR && UNITY_SWITCH
-        {
-            if (InputSystem.Instance.switchButtons.A && !_isObjectGrabed && _isObjectDetected)
-            {
-                _detectedObject.OnInteractBegin();
-                _isObjectGrabed = true;
-                _grabedObject = _detectedObject;
-                Debug.Log("Object grabed");
-                StartCoroutine(MoveToGrabPlaceCoroutine());
-            }
-        }
-        #else
-        {
-            if (Input.GetKeyDown(KeyCode.E) && !_isObjectGrabed && _isObjectDetected)
-            {
-                _detectedObject.OnInteractBegin();
-                _isObjectGrabed = true;
-                _grabedObject = _detectedObject;
-                Debug.Log("Object grabed");
-                StartCoroutine(MoveToGrabPlaceCoroutine());
-            }
-        }
-        #endif
-    }
+        bool pressedInteract;
 
+        #if !UNITY_EDITOR && UNITY_SWITCH
+            pressedInteract = InputSystem.Instance.switchButtons.A;
+        #else
+            pressedInteract = Input.GetKeyDown(KeyCode.E);
+        #endif
+
+        if (pressedInteract && !_isObjectGrabed && _isObjectDetected && _detectedObject is GrabableObject)
+        {
+            _isObjectGrabed = true;
+            _grabedObject = (GrabableObject)_detectedObject;
+            Debug.Log("Object grabed");
+            StartCoroutine(MoveToGrabPlaceCoroutine());
+        }
+    }
+ 
     private void UseObject()
     {
+        bool pressedInteract;
+
         #if !UNITY_EDITOR && UNITY_SWITCH
-        {
-            if (InputSystem.Instance.switchButtons.A && _isObjectGrabed)
-            {
-                _grabedObject.OnInteractEnd();
-                _isObjectGrabed = false;
-                Debug.Log("Object used");
-
-                _grabedObject.transform.parent = null;
-            }
-        }
+            pressedInteract = InputSystem.Instance.switchButtons.A;
         #else
-        {
-            if (Input.GetKeyDown(KeyCode.E) && _isObjectGrabed)
-            {
-                _grabedObject.OnInteractEnd();
-                _isObjectGrabed = false;
-                Debug.Log("Object used");
-
-                _grabedObject.transform.parent = null;
-            }
-        }
+            pressedInteract = Input.GetKeyDown(KeyCode.E);
         #endif
+
+        if (pressedInteract && _isObjectGrabed)
+        {
+            _grabedObject.OnInteractEnd();
+            _isObjectGrabed = false;
+            Debug.Log("Object used");
+
+            _grabedObject.transform.parent = null;
+        }
     }
 
     private IEnumerator MoveToGrabPlaceCoroutine()
     {
         _grabedObject.transform.LookAt(Camera.main.transform);
 
-        while(Vector3.Distance(_grabedObject.transform.position, GrabPlace.position) > 0.1f)
+        while (Vector3.Distance(_grabedObject.transform.position, GrabPlace.position) > 0.1f)
         {
             Vector3 translation = (GrabPlace.position - _grabedObject.transform.position).normalized * GrabSpeed * Time.deltaTime;
             _grabedObject.transform.position += translation;
@@ -112,11 +69,5 @@ public class ObjectGraber : MonoBehaviour
         }
         _grabedObject.transform.LookAt(Camera.main.transform);
         _grabedObject.transform.parent = GrabPlace;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(LookStart.position, LookStart.position + LookStart.forward * GrabDistance);
     }
 }

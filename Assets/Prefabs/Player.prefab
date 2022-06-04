@@ -643,6 +643,7 @@ GameObject:
   - component: {fileID: 4424509256602941598}
   - component: {fileID: 1702781793}
   - component: {fileID: 1702781794}
+  - component: {fileID: 1702781796}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -733,11 +734,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LookStart: {fileID: 1768941914755181503}
-  GrabDistance: 2
-  GrabPlace: {fileID: 8045786684272858796}
-  GrabableObjectsLayer:
+  LookDistance: 3
+  InteractableObjectsLayer:
     serializedVersion: 2
     m_Bits: 128
+  GrabPlace: {fileID: 8045786684272858796}
   GrabSpeed: 10
 --- !u!114 &1702781793
 MonoBehaviour:
@@ -755,7 +756,7 @@ MonoBehaviour:
   WakeUpEndPosition: {fileID: 0}
   WakeUpStartRotation: {x: -90, y: 0, z: 0}
   WakeUpEndRotation: {x: 0, y: 90, z: 0}
-  WakeUpTime: 3
+  WakeUpTime: 0.1
 --- !u!114 &1702781794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,6 +770,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 5156182175546500137}
+--- !u!114 &1702781796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8547126922681199569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62607c674de536040962eee634f3b706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LookStart: {fileID: 1768941914755181503}
+  LookDistance: 3
+  InteractableObjectsLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &8547126923247213301
 GameObject:
   m_ObjectHideFlags: 0
