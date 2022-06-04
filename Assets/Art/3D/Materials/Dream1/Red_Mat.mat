@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7842197597913728390
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,12 +20,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WallsCursed_Mat
+  m_Name: Red_Mat
   m_Shader: {fileID: -6465566751694194690, guid: c32d78f1bbd52ba40aa7b94b1096fb40,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -44,33 +57,18 @@ Material:
     m_Ints: []
     m_Floats:
     - _AmbientOclussion: 1
-    - _BlendOpacity: 0
-    - _DistortionPower: 0.02
-    - _DistortionScale: 50
-    - _DistortionSpeed: 0.1
-    - _MaxDistance: 2.79
+    - _DistortionPower: 1
+    - _DistortionScale: 5
+    - _DistortionSpeed: 1
+    - _MaxDistance: 1
     - _Metallic: 0
     - _MinDistance: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0
     m_Colors:
-    - _ColorB: {r: 0, g: 0, b: 1, a: 0}
-    - _ColorG: {r: 0, g: 1, b: 0, a: 0}
+    - _ColorB: {r: 1, g: 0.044800427, b: 0, a: 0}
+    - _ColorG: {r: 1, g: 0.36320752, b: 0.36320752, a: 0}
     - _ColorR: {r: 1, g: 0, b: 0, a: 0}
-    - _DistortionColor: {r: 0.7264151, g: 0.37965468, b: 0.37965468, a: 0}
-    - _PlayerPosition: {r: -19.007835, g: 21.14, b: -16.1839, a: 0}
+    - _DistortionColor: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &4718048062660779551
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
