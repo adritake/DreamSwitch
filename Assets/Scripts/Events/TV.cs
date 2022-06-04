@@ -22,7 +22,6 @@ public class TV : ChecklistEvent
     {
         _player.CanMove = true;
         TurnOnTv(false);
-        LevelChecklistManager.Instance.CompleteEvent(EventName);
     }
 
     private void TurnOnTv(bool turnOn)

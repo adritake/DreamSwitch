@@ -9,6 +9,11 @@ public class LevelChecklistManager : Singleton<LevelChecklistManager>
     public List<EventCheck> EventChecks;
     public EventChecklistUI EventCheckListUI;
 
+    [Header("Debug")]
+    public bool StartCompleted;
+
+    public bool ListCompleted => _listCompleted;
+
     private bool _listCompleted;
 
     [Serializable]
@@ -18,6 +23,11 @@ public class LevelChecklistManager : Singleton<LevelChecklistManager>
         public bool Completed;
     }
 
+
+    private void Start()
+    {
+        _listCompleted = true;
+    }
 
     private void Update()
     {
@@ -37,7 +47,7 @@ public class LevelChecklistManager : Singleton<LevelChecklistManager>
         if (!_listCompleted)
         {
             _listCompleted = true;
-            Debug.Log("LEVEL COMPLETED!");
+            Debug.Log("CHECKLIST COMPLETED!");
         }
     }
 
