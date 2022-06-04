@@ -17,7 +17,12 @@ public class SceneController : Singleton<SceneController>
     {
         if(debugMode && InputSystem.Instance.switchButtons.Down == true)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            ReloadScene();
         }
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

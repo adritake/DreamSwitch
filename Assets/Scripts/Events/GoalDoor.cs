@@ -10,6 +10,7 @@ public class GoalDoor : ChecklistEvent
         if (LevelChecklistManager.Instance.ListCompleted)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneController.Instance.ReloadScene();
         }
         else
         {

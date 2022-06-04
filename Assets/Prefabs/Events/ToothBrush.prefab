@@ -260,7 +260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EventName: ToothBrush
   BrushTime: 3
-  SingleBrushTime: 0.5
+  SingleBrushTime: 0.1
+  BrushRepeats: 29
   BrushPos1: {fileID: 0}
   BrushPos2: {fileID: 0}
   BrushLookAt: {fileID: 0}
