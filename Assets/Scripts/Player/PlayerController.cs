@@ -18,17 +18,29 @@ public class PlayerController : MonoBehaviour
     public float LookXLimit = 45.0f;
 
     private CharacterController _characterController;
+    private PlayerCameraManager _cameraManager;
     private Vector3 _moveDirection = Vector3.zero;
     private float _rotationX = 0;
     private float _movementDirectionY;
 
-    [HideInInspector]
-    public bool CanMove = true;
-    
+    private bool _canMove;
 
-    void Start()
+    public bool CanMove
+    {
+        get { return _canMove; }
+        set
+        {
+            _canMove = value;
+            _cameraManager.EnableHandHeldMovement(value);
+        }
+    }
+
+
+
+    void Awake()
     {
         _characterController = GetComponent<CharacterController>();
+        _cameraManager = GetComponent<PlayerCameraManager>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -52,14 +64,14 @@ public class PlayerController : MonoBehaviour
         float curSpeedY;
 
     #if !UNITY_EDITOR && UNITY_SWITCH
-    {
-        curSpeedX = CanMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputSystem.Instance.switchButtons.StickLY : 0;
-        curSpeedY = CanMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputSystem.Instance.switchButtons.StickLX : 0;
-    }
+        {
+            curSpeedX = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputSystem.Instance.switchButtons.StickLY : 0;
+            curSpeedY = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputSystem.Instance.switchButtons.StickLX : 0;
+        }
     #else
-    {
-        curSpeedX = CanMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Vertical") : 0;
-        curSpeedY = CanMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Horizontal") : 0;
+        {
+            curSpeedX = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Vertical") : 0;
+        curSpeedY = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Horizontal") : 0;
     }
     #endif
 
@@ -87,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
     private void Look()
     {
-        if (CanMove)
+        if (_canMove)
         {
         #if !UNITY_EDITOR && UNITY_SWITCH
         {
@@ -111,6 +123,12 @@ public class PlayerController : MonoBehaviour
         }
         #endif
         }
+    }
+
+    public void LookAt(Vector3 position)
+    {
+        transform.LookAt(new Vector3(position.x, transform.position.y, position.z));
+        PlayerCamera.transform.LookAt(position);
     }
 
     private void OnDrawGizmosSelected()

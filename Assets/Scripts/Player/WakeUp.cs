@@ -13,12 +13,10 @@ public class WakeUp : MonoBehaviour
     public float WakeUpTime;
 
     private PlayerController _playerController;
-    private PlayerCameraManager _cameraManager;
 
     void Start()
     {
         _playerController = GetComponent<PlayerController>();
-        _cameraManager = GetComponent<PlayerCameraManager>();
         InitiatePlayer();
         WakeUpPlayer();
     }
@@ -33,13 +31,11 @@ public class WakeUp : MonoBehaviour
     private void WakeUpPlayer()
     {
         EyeLids.OpenEyes();
-        _cameraManager.EnableHandHeldMovement(false);
         Sequence sequence = DOTween.Sequence();
         sequence.AppendInterval(2);
         sequence.Append(transform.DORotate(WakeUpEndRotation, WakeUpTime));
         sequence.Join(transform.DOMove(WakeUpEndPosition.position, WakeUpTime));
         sequence.AppendCallback(() => _playerController.CanMove = true);
-        sequence.AppendCallback(() => _cameraManager.EnableHandHeldMovement(true));
 
         sequence.Play();
     }
