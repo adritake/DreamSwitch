@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private float _movementDirectionY;
 
     [HideInInspector]
-    public bool canMove = true;
+    public bool CanMove = true;
     
 
     void Start()
@@ -53,13 +53,13 @@ public class PlayerController : MonoBehaviour
 
     #if !UNITY_EDITOR && UNITY_SWITCH
     {
-        curSpeedX = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputSystem.Instance.switchButtons.StickLY : 0;
-        curSpeedY = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputSystem.Instance.switchButtons.StickLX : 0;
+        curSpeedX = CanMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputSystem.Instance.switchButtons.StickLY : 0;
+        curSpeedY = CanMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputSystem.Instance.switchButtons.StickLX : 0;
     }
     #else
     {
-        curSpeedX = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Vertical") : 0;
-        curSpeedY = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Horizontal") : 0;
+        curSpeedX = CanMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Vertical") : 0;
+        curSpeedY = CanMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Horizontal") : 0;
     }
     #endif
 
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
     private void Look()
     {
-        if (canMove)
+        if (CanMove)
         {
         #if !UNITY_EDITOR && UNITY_SWITCH
         {
