@@ -45,6 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EventChecks:
+  - EventName: Alarm
+    Completed: 0
+  - EventName: Wardrobe
+    Completed: 0
+  - EventName: WC
+    Completed: 0
+  - EventName: Shower
+    Completed: 0
+  - EventName: ToothBrush
+    Completed: 0
   - EventName: Breakfast
+    Completed: 0
+  - EventName: TV
     Completed: 0
   EventCheckListUI: {fileID: 0}
