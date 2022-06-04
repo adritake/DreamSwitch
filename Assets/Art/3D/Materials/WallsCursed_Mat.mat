@@ -59,7 +59,7 @@ Material:
     - _ColorG: {r: 0, g: 1, b: 0, a: 0}
     - _ColorR: {r: 1, g: 0, b: 0, a: 0}
     - _DistortionColor: {r: 0.7264151, g: 0.37965468, b: 0.37965468, a: 0}
-    - _PlayerPosition: {r: -32.106598, g: 9.139999, b: 45.368, a: 0}
+    - _PlayerPosition: {r: -1.4115125, g: 21.14, b: 2.643667, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4718048062660779551
 MonoBehaviour:

@@ -10,6 +10,7 @@ public class Shower : ChecklistEvent
 
     public override void CompleteEvent()
     {
+        base.CompleteEvent();
         _player.CanMove = false;
         ShowerVFX.Play();
         _player.LookAt(LookAt.position);

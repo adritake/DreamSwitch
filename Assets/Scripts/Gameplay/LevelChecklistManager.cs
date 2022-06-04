@@ -26,7 +26,7 @@ public class LevelChecklistManager : Singleton<LevelChecklistManager>
 
     private void Start()
     {
-        _listCompleted = true;
+        _listCompleted = StartCompleted;
     }
 
     private void Update()
