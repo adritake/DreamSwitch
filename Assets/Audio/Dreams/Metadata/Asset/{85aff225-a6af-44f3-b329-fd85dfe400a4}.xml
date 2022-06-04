@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{85aff225-a6af-44f3-b329-fd85dfe400a4}">
+		<property name="assetPath">
+			<value>Ambience/Loop2/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{df47353f-a507-471c-9be8-e414cb59b518}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{ffc67ba8-7bcf-4d6a-94f7-a39589784afd}">
+		<property name="assetPath">
+			<value>Sfx/Loop1/AlarmTurnOff.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>3.7226666666666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{df47353f-a507-471c-9be8-e414cb59b518}</destination>
+		</relationship>
+	</object>
+</objects>

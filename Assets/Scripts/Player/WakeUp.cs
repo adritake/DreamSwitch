@@ -30,6 +30,7 @@ public class WakeUp : MonoBehaviour
 
     private void WakeUpPlayer()
     {
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/Alarm", gameObject);
         EyeLids.OpenEyes();
         Sequence sequence = DOTween.Sequence();
         sequence.AppendInterval(2);

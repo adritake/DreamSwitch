@@ -12,6 +12,7 @@ public class Shower : ChecklistEvent
     {
         _player.CanMove = false;
         ShowerVFX.Play();
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/Shower", gameObject);
         _player.LookAt(LookAt.position);
         Invoke(nameof(EndEvent), ShowerTime);
     }

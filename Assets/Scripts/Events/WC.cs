@@ -13,6 +13,7 @@ public class WC : ChecklistEvent
         _player.CanMove = false;
         _player.LookAt(LookPosition.position);
         _player.GetComponent<PlayerVFXManager>().PlayPeeVFX();
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/Pee", gameObject);
         Invoke(nameof(ReleasePlayer), PeeTime);
     }
 

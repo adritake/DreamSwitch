@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     private bool _canMove = true;
 
+    FMOD.Studio.EventInstance e_Steps;
+
     public bool CanMove
     {
         get { return _canMove; }
@@ -42,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        e_Steps = FMODUnity.RuntimeManager.CreateInstance("event:/Sfx/General/Steps");
     }
 
     void Update()
@@ -69,13 +73,29 @@ public class PlayerController : MonoBehaviour
     #else
         {
             curSpeedX = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Vertical") : 0;
-        curSpeedY = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Horizontal") : 0;
+            curSpeedY = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Horizontal") : 0;
     }
     #endif
 
         _movementDirectionY = _moveDirection.y;
         _moveDirection = (forward * curSpeedX) + (right * curSpeedY);
         _moveDirection.y = _movementDirectionY;
+
+        if(_moveDirection.x != 0 || _moveDirection.y != 0)
+        {
+            FMOD.Studio.PLAYBACK_STATE state;
+            e_Steps.getPlaybackState(out state);
+
+            if(state == FMOD.Studio.PLAYBACK_STATE.STOPPED)
+            {
+                e_Steps.start();
+            }
+        }
+
+        else
+        {
+            e_Steps.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
     }
 
     private void ApplyGravity()

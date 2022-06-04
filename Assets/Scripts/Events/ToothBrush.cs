@@ -7,6 +7,7 @@ public class ToothBrush : ChecklistEvent
 {
     public float BrushTime;
     public float SingleBrushTime;
+    public int BrushRepeats;
     public Transform BrushPos1;
     public Transform BrushPos2;
     public Transform BrushLookAt;
@@ -30,6 +31,7 @@ public class ToothBrush : ChecklistEvent
         _player.CanMove = false;
         _collider.enabled = false;
         BrushingProcess();
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/Toothbrush", gameObject);
         Invoke(nameof(EndEvent), BrushTime);
     }
 
@@ -46,6 +48,6 @@ public class ToothBrush : ChecklistEvent
     {
         transform.position = BrushPos1.position;
         transform.LookAt(BrushLookAt);
-        transform.DOMove(BrushPos2.position, SingleBrushTime).SetLoops(5, LoopType.Yoyo).SetEase(Ease.InOutQuad);
+        transform.DOMove(BrushPos2.position, SingleBrushTime).SetLoops(BrushRepeats, LoopType.Yoyo).SetEase(Ease.InOutQuad);
     }
 }
