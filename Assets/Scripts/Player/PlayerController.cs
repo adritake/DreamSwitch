@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private float _movementDirectionY;
 
     [HideInInspector]
-    public bool canMove = true;
+    public bool CanMove = true;
     
 
     void Start()
@@ -50,8 +50,8 @@ public class PlayerController : MonoBehaviour
         Vector3 right = transform.TransformDirection(Vector3.right);
         bool isRunning = false;
 
-        float curSpeedX = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputEvents.GetMovementAction().z : 0;
-        float curSpeedY = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputEvents.GetMovementAction().x : 0;
+        float curSpeedX = CanMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputEvents.GetMovementAction().z : 0;
+        float curSpeedY = CanMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputEvents.GetMovementAction().x : 0;
         _movementDirectionY = _moveDirection.y;
         _moveDirection = (forward * curSpeedX) + (right * curSpeedY);
         _moveDirection.y = _movementDirectionY;
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     private void Look()
     {
-        if (canMove)
+        if (CanMove)
         {
             _rotationX += -InputEvents.GetRotationAction().y * LookSpeed * Time.deltaTime;
             _rotationX = Mathf.Clamp(_rotationX, -LookXLimit, LookXLimit);
