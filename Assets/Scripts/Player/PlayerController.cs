@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private float _rotationX = 0;
     private float _movementDirectionY;
 
-    private bool _canMove;
+    private bool _canMove = true;
 
     public bool CanMove
     {
@@ -34,8 +34,6 @@ public class PlayerController : MonoBehaviour
             _cameraManager.EnableHandHeldMovement(value);
         }
     }
-
-
 
     void Awake()
     {
