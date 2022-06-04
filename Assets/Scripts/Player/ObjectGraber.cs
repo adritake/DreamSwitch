@@ -5,8 +5,6 @@ using UnityEngine;
 public class ObjectGraber : MonoBehaviour
 {
 
-    public CharacterInputActions InputEvents;
-
     public Transform LookStart;
     public float GrabDistance;
     public Transform GrabPlace;
@@ -49,26 +47,56 @@ public class ObjectGraber : MonoBehaviour
 
     private void GrabObject()
     {
-        if (InputEvents.GetInteract() && !_isObjectGrabed && _isObjectDetected)
+        #if !UNITY_EDITOR && UNITY_SWITCH
         {
-            _detectedObject.OnInteractBegin();
-            _isObjectGrabed = true;
-            _grabedObject = _detectedObject;
-            Debug.Log("Object grabed");
-            StartCoroutine(MoveToGrabPlaceCoroutine());
+            if (InputSystem.Instance.switchButtons.A && !_isObjectGrabed && _isObjectDetected)
+            {
+                _detectedObject.OnInteractBegin();
+                _isObjectGrabed = true;
+                _grabedObject = _detectedObject;
+                Debug.Log("Object grabed");
+                StartCoroutine(MoveToGrabPlaceCoroutine());
+            }
         }
+        #else
+        {
+            if (Input.GetKeyDown(KeyCode.E) && !_isObjectGrabed && _isObjectDetected)
+            {
+                _detectedObject.OnInteractBegin();
+                _isObjectGrabed = true;
+                _grabedObject = _detectedObject;
+                Debug.Log("Object grabed");
+                StartCoroutine(MoveToGrabPlaceCoroutine());
+            }
+        }
+        #endif
     }
 
     private void UseObject()
     {
-        if (InputEvents.GetInteract() && _isObjectGrabed)
+        #if !UNITY_EDITOR && UNITY_SWITCH
         {
-            _grabedObject.OnInteractEnd();
-            _isObjectGrabed = false;
-            Debug.Log("Object used");
+            if (InputSystem.Instance.switchButtons.A && _isObjectGrabed)
+            {
+                _grabedObject.OnInteractEnd();
+                _isObjectGrabed = false;
+                Debug.Log("Object used");
 
-            _grabedObject.transform.parent = null;
+                _grabedObject.transform.parent = null;
+            }
         }
+        #else
+        {
+            if (Input.GetKeyDown(KeyCode.E) && _isObjectGrabed)
+            {
+                _grabedObject.OnInteractEnd();
+                _isObjectGrabed = false;
+                Debug.Log("Object used");
+
+                _grabedObject.transform.parent = null;
+            }
+        }
+        #endif
     }
 
     private IEnumerator MoveToGrabPlaceCoroutine()

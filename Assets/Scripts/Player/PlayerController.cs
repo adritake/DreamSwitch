@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 
 public class PlayerController : MonoBehaviour
 {
-    public CharacterInputActions InputEvents;
 
     [Header("Movement")]
     public float WalkingSpeed = 7.5f;
@@ -50,8 +48,21 @@ public class PlayerController : MonoBehaviour
         Vector3 right = transform.TransformDirection(Vector3.right);
         bool isRunning = false;
 
-        float curSpeedX = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputEvents.GetMovementAction().z : 0;
-        float curSpeedY = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputEvents.GetMovementAction().x : 0;
+        float curSpeedX;
+        float curSpeedY;
+
+    #if !UNITY_EDITOR && UNITY_SWITCH
+    {
+        curSpeedX = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputSystem.Instance.switchButtons.StickLY : 0;
+        curSpeedY = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputSystem.Instance.switchButtons.StickLX : 0;
+    }
+    #else
+    {
+        curSpeedX = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Vertical") : 0;
+        curSpeedY = canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Horizontal") : 0;
+    }
+    #endif
+
         _movementDirectionY = _moveDirection.y;
         _moveDirection = (forward * curSpeedX) + (right * curSpeedY);
         _moveDirection.y = _movementDirectionY;
@@ -78,10 +89,27 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove)
         {
-            _rotationX += -InputEvents.GetRotationAction().y * LookSpeed * Time.deltaTime;
+        #if !UNITY_EDITOR && UNITY_SWITCH
+        {
+            _rotationX += -InputSystem.Instance.switchButtons.StickRY * LookSpeed * Time.deltaTime;
+        }
+        #else
+        {
+            _rotationX += -Input.GetAxis("Mouse Y") * LookSpeed * Time.deltaTime;
+        }
+        #endif
             _rotationX = Mathf.Clamp(_rotationX, -LookXLimit, LookXLimit);
             PlayerCamera.transform.localRotation = Quaternion.Euler(_rotationX, 0, 0);
-            transform.rotation *= Quaternion.Euler(0, InputEvents.GetRotationAction().x * LookSpeed * Time.deltaTime, 0);
+
+        #if !UNITY_EDITOR && UNITY_SWITCH
+        {
+            transform.rotation *= Quaternion.Euler(0, InputSystem.Instance.switchButtons.StickRX * LookSpeed * Time.deltaTime, 0);
+        }
+        #else
+        {
+            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * LookSpeed * Time.deltaTime, 0);
+        }
+        #endif
         }
     }
 
