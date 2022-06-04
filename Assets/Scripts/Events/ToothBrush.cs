@@ -17,7 +17,6 @@ public class ToothBrush : ChecklistEvent
 
     private void Start()
     {
-        _player = FindObjectOfType<PlayerController>();
         _collider = GetComponent<Collider>();
         _initialPosition = transform.position;
         _initialRotation = transform.rotation;

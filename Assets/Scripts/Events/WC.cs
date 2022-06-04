@@ -7,13 +7,6 @@ public class WC : ChecklistEvent
     public float PeeTime = 5;
     public Transform LookPosition;
 
-    private PlayerController _player;
-
-    private void Start()
-    {
-        _player = FindObjectOfType<PlayerController>();
-    }
-
     public override void CompleteEvent()
     {
         base.CompleteEvent();

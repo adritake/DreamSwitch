@@ -7,11 +7,6 @@ public class Shower : ChecklistEvent
     public float ShowerTime;
     public ParticleSystem ShowerVFX;
 
-    private void Start()
-    {
-        _player = FindObjectOfType<PlayerController>();
-    }
-
     public override void CompleteEvent()
     {
         _player.CanMove = false;
