@@ -11,6 +11,8 @@ public class WakeUp : MonoBehaviour
     public Vector3 WakeUpEndRotation = new Vector3(0, 90, 0);
 
     public float WakeUpTime;
+    public float timeBeforeWakeup;
+    public float timeBeforeGetup;
 
     private PlayerController _playerController;
 
@@ -18,7 +20,7 @@ public class WakeUp : MonoBehaviour
     {
         _playerController = GetComponent<PlayerController>();
         InitiatePlayer();
-        WakeUpPlayer();
+        StartCoroutine(WakeUpPlayer());
     }
 
     private void InitiatePlayer()
@@ -28,10 +30,13 @@ public class WakeUp : MonoBehaviour
         EyeLids.CloseEyes(true);
     }
 
-    private void WakeUpPlayer()
+    private IEnumerator WakeUpPlayer()
     {
-        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/Alarm", gameObject);
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/Wakeup", gameObject);
+        yield return new WaitForSeconds(timeBeforeWakeup);
         EyeLids.OpenEyes();
+        yield return new WaitForSeconds(timeBeforeGetup);
+        FindObjectOfType<Alarm>().LowerAlarm();
         Sequence sequence = DOTween.Sequence();
         sequence.AppendInterval(2);
         sequence.Append(transform.DORotate(WakeUpEndRotation, WakeUpTime));
