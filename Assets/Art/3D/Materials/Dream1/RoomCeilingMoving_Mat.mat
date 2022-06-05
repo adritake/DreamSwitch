@@ -7,12 +7,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WallsCursed_Mat
-  m_Shader: {fileID: -6465566751694194690, guid: c32d78f1bbd52ba40aa7b94b1096fb40,
+  m_Name: RoomCeilingMoving_Mat
+  m_Shader: {fileID: -6465566751694194690, guid: 1aeeb190c2db65c408b0ca22da493d09,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -44,24 +44,17 @@ Material:
     m_Ints: []
     m_Floats:
     - _AmbientOclussion: 1
-    - _BlendOpacity: 0
-    - _DistortionPower: 0.02
-    - _DistortionScale: 50
-    - _DistortionSpeed: 0.1
-    - _MaxDistance: 2.79
     - _Metallic: 0
-    - _MinDistance: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0
     m_Colors:
-    - _ColorB: {r: 0, g: 0, b: 1, a: 0}
-    - _ColorG: {r: 0, g: 1, b: 0, a: 0}
-    - _ColorR: {r: 1, g: 0, b: 0, a: 0}
-    - _DistortionColor: {r: 0.7264151, g: 0.37965468, b: 0.37965468, a: 0}
-    - _PlayerPosition: {r: -16.335531, g: 21.14, b: -16.018152, a: 0}
+    - _ColorB: {r: 0, g: 0, b: 0, a: 0}
+    - _ColorG: {r: 1, g: 1, b: 1, a: 0}
+    - _ColorR: {r: 1, g: 1, b: 1, a: 0}
+    - _Speed: {r: 0.015, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &4718048062660779551
+--- !u!114 &8946037499063398108
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
