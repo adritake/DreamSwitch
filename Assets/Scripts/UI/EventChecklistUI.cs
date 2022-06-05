@@ -67,7 +67,7 @@ public class EventChecklistUI : MonoBehaviour
         float openIconTime = enable ? 0 : OpenTime;
 
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(transform.DOMove(new Vector3(transform.position.x + positionX, transform.position.y, transform.position.z), OpenTime).SetEase(Ease.InOutQuad));
+        sequence.Append(transform.DOMove(new Vector3(transform.position.x + positionX / 2, transform.position.y, transform.position.z), OpenTime).SetEase(Ease.InOutQuad));
         sequence.Insert(openIconTime, OpenBG.DOColor(new Color(1, 1, 1, alpha * 0.5f), 0.1f));
         sequence.Insert(openIconTime, OpenIcon.DOColor(new Color(1, 1, 1, alpha ), 0.1f));
         sequence.AppendCallback(() => _isChecklistMoving = false);
