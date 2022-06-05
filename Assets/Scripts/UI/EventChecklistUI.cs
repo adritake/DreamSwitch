@@ -12,8 +12,6 @@ public class EventChecklistUI : MonoBehaviour
     public Image OpenIcon;
     public CompletedIconUI CompletedIcon;
     public float OpenTime;
-    public float ClosedX = 700;
-    public float OpenedX = -700;
 
     private List<EventLineUI> _eventLines;
     private FinalGoalLineUI _goalLine;
@@ -63,7 +61,8 @@ public class EventChecklistUI : MonoBehaviour
     private void EnableCheckList(bool enable)
     {
         _isChecklistMoving = true;
-        float positionX = enable ? OpenedX : ClosedX;
+        float xSize = GetComponent<RectTransform>().sizeDelta.x;
+        float positionX = enable ? -xSize : xSize;
         float alpha = enable ? 0 : 1;
         float openIconTime = enable ? 0 : OpenTime;
 
