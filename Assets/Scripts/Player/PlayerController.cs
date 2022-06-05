@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         CalculateMovement();
+        AdjustDirectionToSlope();
         ApplyGravity();
         Move();
         Look();
@@ -65,33 +66,30 @@ public class PlayerController : MonoBehaviour
         float curSpeedX;
         float curSpeedY;
 
-    #if !UNITY_EDITOR && UNITY_SWITCH
+#if !UNITY_EDITOR && UNITY_SWITCH
         {
             curSpeedX = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputSystem.Instance.switchButtons.StickLY : 0;
             curSpeedY = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputSystem.Instance.switchButtons.StickLX : 0;
         }
-    #else
+#else
         {
             curSpeedX = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Vertical") : 0;
             curSpeedY = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Horizontal") : 0;
-    }
-    #endif
+        }
+#endif
 
-        _movementDirectionY = _moveDirection.y;
         _moveDirection = (forward * curSpeedX) + (right * curSpeedY);
-        _moveDirection.y = _movementDirectionY;
 
-        if(_moveDirection.x != 0 || _moveDirection.y != 0)
+        if (_moveDirection.x != 0 || _moveDirection.y != 0)
         {
             FMOD.Studio.PLAYBACK_STATE state;
             e_Steps.getPlaybackState(out state);
 
-            if(state == FMOD.Studio.PLAYBACK_STATE.STOPPED)
+            if (state == FMOD.Studio.PLAYBACK_STATE.STOPPED)
             {
                 e_Steps.start();
             }
         }
-
         else
         {
             e_Steps.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
@@ -100,65 +98,56 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyGravity()
     {
-        if (!_characterController.isGrounded)
-        {
-            _moveDirection.y -= Gravity * Time.deltaTime;
-        }
-        else
-        {
-            _moveDirection.y = 0;
-        }
+        _moveDirection.y -= Gravity * Time.deltaTime;
     }
 
     private void Move()
     {
-        var direction = AdjustDirectionToSlope(_moveDirection);
-        _characterController.Move(direction * Time.deltaTime);
+        _characterController.Move(_moveDirection * Time.deltaTime);
     }
 
     private void Look()
     {
         if (_canMove)
         {
-        #if !UNITY_EDITOR && UNITY_SWITCH
+#if !UNITY_EDITOR && UNITY_SWITCH
         {
             _rotationX += -InputSystem.Instance.switchButtons.StickRY * LookSpeed * Time.deltaTime;
         }
-        #else
-        {
-            _rotationX += -Input.GetAxis("Mouse Y") * LookSpeed * Time.deltaTime;
-        }
-        #endif
+#else
+            {
+                _rotationX += -Input.GetAxis("Mouse Y") * LookSpeed * Time.deltaTime;
+            }
+#endif
             _rotationX = Mathf.Clamp(_rotationX, -LookXLimit, LookXLimit);
             PlayerCamera.transform.localRotation = Quaternion.Euler(_rotationX, 0, 0);
 
-        #if !UNITY_EDITOR && UNITY_SWITCH
+#if !UNITY_EDITOR && UNITY_SWITCH
         {
             transform.rotation *= Quaternion.Euler(0, InputSystem.Instance.switchButtons.StickRX * LookSpeed * Time.deltaTime, 0);
         }
-        #else
-        {
-            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * LookSpeed * Time.deltaTime, 0);
-        }
-        #endif
+#else
+            {
+                transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * LookSpeed * Time.deltaTime, 0);
+            }
+#endif
         }
     }
 
 
-    private Vector3 AdjustDirectionToSlope(Vector3 direction)
+    private void AdjustDirectionToSlope()
     {
         var ray = new Ray(transform.position, Vector3.down);
 
         if (Physics.Raycast(ray, out RaycastHit hitInfo, 2))
         {
             var slopeRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
-            var adjustedVelocity = slopeRotation * direction;
+            var adjustedVelocity = slopeRotation * _moveDirection;
             if (adjustedVelocity.y < 0)
             {
-                return adjustedVelocity;
+                _moveDirection = adjustedVelocity;
             }
         }
-        return direction;
     }
 
     public void LookAt(Vector3 position)
