@@ -67,8 +67,8 @@ Material:
     - _QueueOffset: 0
     - _Smoothness: 0
     m_Colors:
-    - _ColorB: {r: 0.46907264, g: 0.46907264, b: 0.7830189, a: 0}
-    - _ColorG: {r: 1, g: 0.36320752, b: 0.36320752, a: 0}
-    - _ColorR: {r: 1, g: 1, b: 1, a: 0}
+    - _ColorB: {r: 0.7781684, g: 0.7781684, b: 0.8207547, a: 0}
+    - _ColorG: {r: 0.4528302, g: 0.1260235, b: 0.1260235, a: 0}
+    - _ColorR: {r: 1, g: 0.9292453, b: 0.9292453, a: 0}
     - _DistortionColor: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
