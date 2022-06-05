@@ -14,11 +14,14 @@ public class EventChecklistUI : MonoBehaviour
     public float OpenedX = -700;
 
     private List<EventLineUI> _eventLines;
+    private FinalGoalLineUI _goalLine;
     private bool _opened;
+    private bool _isChecklistMoving;
 
     private void Awake()
     {
         _eventLines = GetComponentsInChildren<EventLineUI>().ToList();
+        _goalLine = GetComponentInChildren<FinalGoalLineUI>();
     }
 
 
@@ -37,7 +40,7 @@ public class EventChecklistUI : MonoBehaviour
             pressedOpen = Input.GetKeyDown(KeyCode.Q);
         #endif
 
-        if (pressedOpen)
+        if (pressedOpen && !_isChecklistMoving)
         {
             _opened = !_opened;
             EnableCheckList(_opened);
@@ -49,8 +52,14 @@ public class EventChecklistUI : MonoBehaviour
         _eventLines.First(x => x.EventId == eventId).CheckEvent();
     }
 
+    public void EnableGoalLine()
+    {
+        _goalLine.EnableGoal(true);
+    }
+
     private void EnableCheckList(bool enable)
     {
+        _isChecklistMoving = true;
         float positionX = enable ? OpenedX : ClosedX;
         float alpha = enable ? 0 : 1;
         float openIconTime = enable ? 0 : OpenTime;
@@ -58,6 +67,7 @@ public class EventChecklistUI : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
         sequence.Append(transform.DOMove(new Vector3(transform.position.x + positionX, transform.position.y, transform.position.z), OpenTime).SetEase(Ease.InOutQuad));
         sequence.Insert(openIconTime, OpenImage.DOColor(new Color(1, 1, 1, alpha), 0.1f));
+        sequence.AppendCallback(() => _isChecklistMoving = false);
         sequence.Play();
     }
 }

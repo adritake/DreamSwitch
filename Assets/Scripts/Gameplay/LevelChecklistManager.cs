@@ -26,7 +26,10 @@ public class LevelChecklistManager : Singleton<LevelChecklistManager>
 
     private void Start()
     {
-        _listCompleted = StartCompleted;
+        if (StartCompleted)
+        {
+            CompleteLevel();
+        }
     }
 
     private void Update()
@@ -47,6 +50,7 @@ public class LevelChecklistManager : Singleton<LevelChecklistManager>
         if (!_listCompleted)
         {
             _listCompleted = true;
+            EventCheckListUI.EnableGoalLine();
             Debug.Log("CHECKLIST COMPLETED!");
         }
     }

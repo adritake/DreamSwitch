@@ -11,7 +11,6 @@ public class EventLineUI : MonoBehaviour
     public string EventId;
     public TextMeshProUGUI EventText;
 
-
     private void Start()
     {
         CheckImage.enabled = false;
