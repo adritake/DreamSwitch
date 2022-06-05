@@ -40,7 +40,6 @@ public class InputSystem : MonoBehaviour
         {
             Destroy(this);
         }
-        DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()

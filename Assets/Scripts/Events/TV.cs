@@ -18,6 +18,7 @@ public class TV : ChecklistEvent
         _player.CanMove = false;
         _player.LookAt(LookAt.position);
         TurnOnTv(true);
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/TVStatic", gameObject);
         Invoke(nameof(EndEvent), WatchTime);
         return true;
     }

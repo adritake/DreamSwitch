@@ -19,6 +19,7 @@ public class Breakfast : ChecklistEvent
         }
         _player.CanMove = false;
         Toast.transform.DOMove(ToastEndPosition.position, ClothesMovingTime).SetEase(Ease.InOutQuad);
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/Toast", gameObject);
         Invoke(nameof(EndEvent), EatingTime);
         return true;
     }

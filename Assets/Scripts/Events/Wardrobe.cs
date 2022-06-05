@@ -18,6 +18,10 @@ public class Wardrobe : ChecklistEvent
         }
         _player.CanMove = false;
         Clothes.transform.DOMove(ClothesEndPosition.position, ClothesMovingTime).SetEase(Ease.InOutQuad);
+
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/Wardrobe", gameObject);
+        TextController.Instance.StartDialog("mascarilla");
+
         Invoke(nameof(EndEvent), DressingTime);
         return true;
     }

@@ -31,6 +31,7 @@ public class CompletedIconUI : MonoBehaviour
 
         _squareTween = Square.DOColor(_white, FadeTime).SetEase(Ease.InOutQuart).SetLoops(FadeTimes, LoopType.Yoyo);
         _checkTween = Check.DOColor(_white, FadeTime).SetEase(Ease.InOutQuart).SetLoops(FadeTimes, LoopType.Yoyo);
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/UI/TaskCheck", gameObject);
     }
 
     private void ResetColors()
