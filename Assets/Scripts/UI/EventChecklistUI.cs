@@ -8,7 +8,8 @@ using UnityEngine.UI;
 
 public class EventChecklistUI : MonoBehaviour
 {
-    public Image OpenImage;
+    public Image OpenBG;
+    public Image OpenIcon;
     public CompletedIconUI CompletedIcon;
     public float OpenTime;
     public float ClosedX = 700;
@@ -68,7 +69,8 @@ public class EventChecklistUI : MonoBehaviour
 
         Sequence sequence = DOTween.Sequence();
         sequence.Append(transform.DOMove(new Vector3(transform.position.x + positionX, transform.position.y, transform.position.z), OpenTime).SetEase(Ease.InOutQuad));
-        sequence.Insert(openIconTime, OpenImage.DOColor(new Color(1, 1, 1, alpha), 0.1f));
+        sequence.Insert(openIconTime, OpenBG.DOColor(new Color(1, 1, 1, alpha * 0.5f), 0.1f));
+        sequence.Insert(openIconTime, OpenIcon.DOColor(new Color(1, 1, 1, alpha ), 0.1f));
         sequence.AppendCallback(() => _isChecklistMoving = false);
         sequence.Play();
     }
