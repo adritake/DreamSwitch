@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!_characterController.isGrounded)
         {
-            _moveDirection.y -= Gravity/* * Time.deltaTime*/;
+            _moveDirection.y -= Gravity * Time.deltaTime;
         }
         else
         {
@@ -112,7 +112,8 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        _characterController.Move(_moveDirection * Time.deltaTime);
+        var direction = AdjustDirectionToSlope(_moveDirection);
+        _characterController.Move(direction * Time.deltaTime);
     }
 
     private void Look()
@@ -141,6 +142,23 @@ public class PlayerController : MonoBehaviour
         }
         #endif
         }
+    }
+
+
+    private Vector3 AdjustDirectionToSlope(Vector3 direction)
+    {
+        var ray = new Ray(transform.position, Vector3.down);
+
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 2))
+        {
+            var slopeRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+            var adjustedVelocity = slopeRotation * direction;
+            if (adjustedVelocity.y < 0)
+            {
+                return adjustedVelocity;
+            }
+        }
+        return direction;
     }
 
     public void LookAt(Vector3 position)
