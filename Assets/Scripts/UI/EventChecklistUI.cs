@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class EventChecklistUI : MonoBehaviour
 {
     public Image OpenImage;
+    public CompletedIconUI CompletedIcon;
     public float OpenTime;
     public float ClosedX = 700;
     public float OpenedX = -700;
@@ -50,6 +51,7 @@ public class EventChecklistUI : MonoBehaviour
     public void CompleteLine(string eventId)
     {
         _eventLines.First(x => x.EventId == eventId).CheckEvent();
+        CompletedIcon.PlayCompleted();
     }
 
     public void EnableGoalLine()

@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenImage: {fileID: 6437830674204597098}
+  CompletedIcon: {fileID: 0}
   OpenTime: 1
   ClosedX: 700
   OpenedX: -700
