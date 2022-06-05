@@ -8,14 +8,18 @@ public class Shower : ChecklistEvent
     public Transform LookAt;
     public ParticleSystem ShowerVFX;
 
-    public override void CompleteEvent()
+    public override bool CompleteEvent()
     {
-        base.CompleteEvent();
+        if (!base.CompleteEvent())
+        {
+            return false;
+        }
         _player.CanMove = false;
         ShowerVFX.Play();
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/Shower", gameObject);
         _player.LookAt(LookAt.position);
         Invoke(nameof(EndEvent), ShowerTime);
+        return true;
     }
 
     private void EndEvent()

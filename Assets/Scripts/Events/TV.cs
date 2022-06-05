@@ -9,13 +9,17 @@ public class TV : ChecklistEvent
     public Transform LookAt;
 
 
-    public override void CompleteEvent()
+    public override bool CompleteEvent()
     {
-        base.CompleteEvent();
+        if (!base.CompleteEvent())
+        {
+            return false;
+        }
         _player.CanMove = false;
         _player.LookAt(LookAt.position);
         TurnOnTv(true);
         Invoke(nameof(EndEvent), WatchTime);
+        return true;
     }
 
     private void EndEvent()

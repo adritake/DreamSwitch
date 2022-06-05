@@ -24,15 +24,19 @@ public class ToothBrush : ChecklistEvent
         _initialRotation = transform.rotation;
     }
 
-    public override void CompleteEvent()
+    public override bool CompleteEvent()
     {
-        base.CompleteEvent();
+        if (!base.CompleteEvent())
+        {
+            return false;
+        }
 
         _player.CanMove = false;
         _collider.enabled = false;
         BrushingProcess();
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/Toothbrush", gameObject);
         Invoke(nameof(EndEvent), BrushTime);
+        return true;
     }
 
     private void EndEvent()

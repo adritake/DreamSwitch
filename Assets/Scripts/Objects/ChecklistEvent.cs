@@ -7,6 +7,7 @@ public abstract class ChecklistEvent : MonoBehaviour, IInteractable
     public string EventName;
 
     private bool _looked;
+    private bool _completed;
     protected PlayerController _player;
 
     protected virtual void Start()
@@ -14,10 +15,19 @@ public abstract class ChecklistEvent : MonoBehaviour, IInteractable
         _player = FindObjectOfType<PlayerController>();
     }
 
-    public virtual void CompleteEvent()
+    public virtual bool CompleteEvent()
     {
-        LevelChecklistManager.Instance.CompleteEvent(EventName);
-        Debug.Log("Completed event : " + gameObject.name);
+        if (!_completed)
+        {
+            _completed = true;
+            LevelChecklistManager.Instance.CompleteEvent(EventName);
+            Debug.Log("Completed event : " + gameObject.name);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public virtual void OnInteractBegin()
@@ -30,7 +40,7 @@ public abstract class ChecklistEvent : MonoBehaviour, IInteractable
 
     public void OnLookedBegin()
     {
-        if (!_looked)
+        if (!_looked && !_completed)
         {
             _looked = true;
             ReticleUI.Instance.EnableReticle(true);

@@ -3363,6 +3363,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 805451808}
     - target: {fileID: 1702781793, guid: e731e6d381654e048a457643d0a346e9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702781793, guid: e731e6d381654e048a457643d0a346e9, type: 3}
       propertyPath: WakeUpEndPosition
       value: 
       objectReference: {fileID: 195383750}
@@ -13545,7 +13549,7 @@ MonoBehaviour:
       Data2: 1244052812
       Data3: 1181852580
       Data4: -427140517
-    Path: event:/Bgm/Music
+    Path: event:/Bgm/Loop1/Loop1
   Event: 
   PlayEvent: 1
   StopEvent: 2

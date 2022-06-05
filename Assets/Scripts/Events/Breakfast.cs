@@ -11,12 +11,16 @@ public class Breakfast : ChecklistEvent
     public float ClothesMovingTime;
 
 
-    public override void CompleteEvent()
+    public override bool CompleteEvent()
     {
-        base.CompleteEvent();
+        if (!base.CompleteEvent())
+        {
+            return false;
+        }
         _player.CanMove = false;
         Toast.transform.DOMove(ToastEndPosition.position, ClothesMovingTime).SetEase(Ease.InOutQuad);
         Invoke(nameof(EndEvent), EatingTime);
+        return true;
     }
 
     private void EndEvent()

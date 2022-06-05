@@ -10,12 +10,16 @@ public class Wardrobe : ChecklistEvent
     public Transform ClothesEndPosition;
     public float ClothesMovingTime;
 
-    public override void CompleteEvent()
+    public override bool CompleteEvent()
     {
-        base.CompleteEvent();
+        if (!base.CompleteEvent())
+        {
+            return false;
+        }
         _player.CanMove = false;
         Clothes.transform.DOMove(ClothesEndPosition.position, ClothesMovingTime).SetEase(Ease.InOutQuad);
         Invoke(nameof(EndEvent), DressingTime);
+        return true;
     }
 
     private void EndEvent()

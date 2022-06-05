@@ -14201,7 +14201,7 @@ MonoBehaviour:
       Data2: 1244052812
       Data3: 1181852580
       Data4: -427140517
-    Path: event:/Bgm/Music
+    Path: event:/Bgm/Loop1/Loop1
   Event: 
   PlayEvent: 1
   StopEvent: 2

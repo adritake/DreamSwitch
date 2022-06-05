@@ -10,9 +10,14 @@ public class Alarm : ChecklistEvent
         base.Start();
     }
 
-    public override void CompleteEvent()
+    public override bool CompleteEvent()
     {
-        base.CompleteEvent();
+        if (!base.CompleteEvent())
+        {
+            return false;
+        }
+
         Debug.Log("Alarm End");
+        return true;
     }
 }
