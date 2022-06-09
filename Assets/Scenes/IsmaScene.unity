@@ -3161,6 +3161,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 290850261}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &298695817 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8103415805753618251, guid: fee00b8c2588af24cb948efb92128fa5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8103415805725036762}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &310369535
 GameObject:
   m_ObjectHideFlags: 0
@@ -3606,63 +3612,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 727630549, guid: e731e6d381654e048a457643d0a346e9, type: 3}
-      propertyPath: m_AmplitudeGain
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 1702781793, guid: e731e6d381654e048a457643d0a346e9, type: 3}
       propertyPath: EyeLids
       value: 
       objectReference: {fileID: 805451808}
     - target: {fileID: 1702781793, guid: e731e6d381654e048a457643d0a346e9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702781793, guid: e731e6d381654e048a457643d0a346e9, type: 3}
-      propertyPath: WakeUpTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702781793, guid: e731e6d381654e048a457643d0a346e9, type: 3}
-      propertyPath: timeBeforeGetup
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702781793, guid: e731e6d381654e048a457643d0a346e9, type: 3}
-      propertyPath: timeBeforeWakeup
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702781793, guid: e731e6d381654e048a457643d0a346e9, type: 3}
       propertyPath: WakeUpEndPosition
       value: 
       objectReference: {fileID: 195383750}
-    - target: {fileID: 1702781793, guid: e731e6d381654e048a457643d0a346e9, type: 3}
-      propertyPath: WakeUpStartRotation.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1768941914755181503, guid: e731e6d381654e048a457643d0a346e9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0000114440945
-      objectReference: {fileID: 0}
-    - target: {fileID: 1768941914755181503, guid: e731e6d381654e048a457643d0a346e9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.6840115
-      objectReference: {fileID: 0}
-    - target: {fileID: 1768941914755181503, guid: e731e6d381654e048a457643d0a346e9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.0000108480435
-      objectReference: {fileID: 0}
-    - target: {fileID: 1768941914755181503, guid: e731e6d381654e048a457643d0a346e9,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1768941914755181503, guid: e731e6d381654e048a457643d0a346e9,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
     - target: {fileID: 8547126922681199569, guid: e731e6d381654e048a457643d0a346e9,
         type: 3}
       propertyPath: m_Name
@@ -7301,11 +7258,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Eyelids
-      objectReference: {fileID: 0}
-    - target: {fileID: 5980211804423971806, guid: 1056d66c857b0514cb0dbbf9ff47d860,
-        type: 3}
-      propertyPath: CloseTime
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5980211804423971807, guid: 1056d66c857b0514cb0dbbf9ff47d860,
         type: 3}
@@ -17925,6 +17877,7 @@ Transform:
   - {fileID: 290850262}
   - {fileID: 404433027}
   - {fileID: 158216404}
+  - {fileID: 298695817}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21029,37 +20982,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1878015152}
     m_Modifications:
-    - target: {fileID: 7333281385275146127, guid: fee00b8c2588af24cb948efb92128fa5,
-        type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7333281385275146127, guid: fee00b8c2588af24cb948efb92128fa5,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 7333281385275146127, guid: fee00b8c2588af24cb948efb92128fa5,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 7333281386113659084, guid: fee00b8c2588af24cb948efb92128fa5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8103415805753618250, guid: fee00b8c2588af24cb948efb92128fa5,
-        type: 3}
-      propertyPath: dialogShowTime
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8103415805753618251, guid: fee00b8c2588af24cb948efb92128fa5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8103415805753618251, guid: fee00b8c2588af24cb948efb92128fa5,
         type: 3}
@@ -21084,17 +21012,17 @@ PrefabInstance:
     - target: {fileID: 8103415805753618251, guid: fee00b8c2588af24cb948efb92128fa5,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8103415805753618251, guid: fee00b8c2588af24cb948efb92128fa5,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8103415805753618251, guid: fee00b8c2588af24cb948efb92128fa5,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8103415805753618251, guid: fee00b8c2588af24cb948efb92128fa5,
         type: 3}

@@ -94,8 +94,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 90
-  m_fontSizeBase: 90
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -364,4 +364,4 @@ MonoBehaviour:
   textBox: {fileID: 7333281385275146127}
   dialogList: {fileID: 11400000, guid: abaed13cc47931740b30f1c244adc64b, type: 2}
   textWaitTime: 0.05
-  dialogShowTime: 3
+  dialogShowTime: 2

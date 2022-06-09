@@ -18,6 +18,8 @@ public class TextController : Singleton<TextController>
     public float textWaitTime;
     public float dialogShowTime;
 
+    bool isTyping;
+
     public enum Language
     { 
         English,
@@ -26,7 +28,11 @@ public class TextController : Singleton<TextController>
 
     public void StartDialog(string id)
     {
-        StartCoroutine(ShowDialog(id));
+        if(!isTyping)
+        {
+            StartCoroutine(ShowDialog(id));
+            isTyping = true;
+        }
     }
 
     IEnumerator ShowDialog(string id)
@@ -57,6 +63,6 @@ public class TextController : Singleton<TextController>
 
         
         dialogBox.SetActive(false);
-
+        isTyping = false;
     }
 }

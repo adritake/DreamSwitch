@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpperEyeLid: {fileID: 5980211805400799751}
   LowerEyeLid: {fileID: 5980211804611519483}
-  CloseTime: 2
+  CloseTime: 0.5
   Displacement: 1080
 --- !u!1 &5980211804611519237
 GameObject:
