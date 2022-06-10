@@ -24,3 +24,16 @@ MonoBehaviour:
   - id: chairRoom_1
     englishText: Chair Room - BEWARE
     spanishText: "Habitaci\xF3n de la Silla - CUIDADO"
+  - id: wakeUp_1
+    englishText: 'Time: 8:05
+
+      Goal: Finish daily routine.
+
+      First task:
+      Turn off alarm.'
+    spanishText: 'Hora: 8:05
+
+      Objetivo: Completar rutina diaria.
+
+      Primera
+      tarea: Apagar alarma.'

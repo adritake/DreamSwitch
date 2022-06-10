@@ -35,7 +35,9 @@ public class WakeUp : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/Wakeup", gameObject);
         yield return new WaitForSeconds(timeBeforeWakeup);
         EyeLids.OpenEyes();
-        yield return new WaitForSeconds(timeBeforeGetup);
+        yield return new WaitForSeconds(1);
+        TextController.Instance.StartDialog("wakeUp_1");
+        yield return new WaitForSeconds(timeBeforeGetup-1);
         FindObjectOfType<Alarm>().LowerAlarm();
         Sequence sequence = DOTween.Sequence();
         sequence.AppendInterval(2);

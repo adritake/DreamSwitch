@@ -98,6 +98,9 @@
 		<property name="isAsync">
 			<value>true</value>
 		</property>
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>0.14999999999999999</value>
 		</property>
@@ -106,6 +109,9 @@
 		</property>
 		<property name="delayType">
 			<value>0</value>
+		</property>
+		<property name="looping">
+			<value>true</value>
 		</property>
 		<relationship name="fadeOutCurve">
 			<destination>{7902a126-5909-4809-a4bf-58d0ffa10283}</destination>
@@ -139,7 +145,7 @@
 			<value>0.14999999999999999</value>
 		</property>
 		<property name="length">
-			<value>0.57999999999999996</value>
+			<value>0.059999999999999998</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{9ee35cab-6851-4fd4-8f54-feb72e157f63}</destination>

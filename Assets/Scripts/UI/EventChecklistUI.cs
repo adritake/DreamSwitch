@@ -17,11 +17,13 @@ public class EventChecklistUI : MonoBehaviour
     private FinalGoalLineUI _goalLine;
     private bool _opened;
     private bool _isChecklistMoving;
+    private RectTransform _recTransform;
 
     private void Awake()
     {
         _eventLines = GetComponentsInChildren<EventLineUI>().ToList();
         _goalLine = GetComponentInChildren<FinalGoalLineUI>();
+        _recTransform = (RectTransform)transform;
     }
 
 
@@ -61,14 +63,15 @@ public class EventChecklistUI : MonoBehaviour
     private void EnableCheckList(bool enable)
     {
         _isChecklistMoving = true;
-        float xSize = GetComponent<RectTransform>().sizeDelta.x;
+        float xSize = _recTransform.sizeDelta.x;
         float positionX = enable ? -xSize : xSize;
         float alpha = enable ? 0 : 1;
         float openIconTime = enable ? 0 : OpenTime;
 
+        Debug.Log("PositionX: " + positionX);
         Debug.Log("Initial checklist position: " + transform.position);
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(transform.DOMove(new Vector3(transform.position.x + (positionX*2 / 3), transform.position.y, transform.position.z), OpenTime).SetEase(Ease.InOutQuad));
+        sequence.Append(_recTransform.DOAnchorPosX(positionX, OpenTime).SetEase(Ease.InOutQuad).SetRelative());
         sequence.Insert(openIconTime, OpenBG.DOColor(new Color(1, 1, 1, alpha * 0.5f), 0.1f));
         sequence.Insert(openIconTime, OpenIcon.DOColor(new Color(1, 1, 1, alpha ), 0.1f));
         sequence.AppendCallback(() => _isChecklistMoving = false);
