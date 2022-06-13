@@ -2,48 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrabableObject : MonoBehaviour, IInteractable
+public class GrabableObject : Interactable
 {
     public string GrabedObjectsLayer;
 
     private int _initialLayer;
-    private bool _lookedAt;
 
-    void Start()
+    protected override void Start()
     {
         _initialLayer = gameObject.layer;
     }
 
     #region Interactable
-    public void OnInteractBegin()
+    public override bool OnInteractBegin()
     {
         Debug.Log("Object interact begin");
         //MoveToLayer(transform, LayerMask.NameToLayer(GrabedObjectsLayer));
         OnLookedEnd();
+        return true;
     }
 
-    public void OnInteractEnd()
+    public override void OnInteractEnd()
     {
         Debug.Log("Object interact end");
         MoveToLayer(transform, _initialLayer);
-    }
-
-    public void OnLookedBegin()
-    {
-        if (!_lookedAt)
-        {
-            _lookedAt = true;
-            Debug.Log("Object looked begin");
-        }
-    }
-
-    public void OnLookedEnd()
-    {
-        if (_lookedAt)
-        {
-            _lookedAt = false;
-            Debug.Log("Object looked end");
-        }
     }
     #endregion
 

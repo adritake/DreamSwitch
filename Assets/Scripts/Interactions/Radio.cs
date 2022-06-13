@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Radio : ChecklistEvent
+public class Radio : Interactable
 {
 
     public float songBPM;
@@ -37,9 +37,8 @@ public class Radio : ChecklistEvent
         radioSong = GetComponent<FMODUnity.StudioEventEmitter>();
     }
 
-    public override bool CompleteEvent()
+    public override bool OnInteractBegin()
     {
-
         if(!radioSong.IsPlaying())
         {
             radioSong.Play();

@@ -19,14 +19,9 @@ public class Breakfast : ChecklistEvent
 
         seq = DOTween.Sequence();
     }
-
-
-    public override bool CompleteEvent()
+    
+    public override bool OnInteractBegin()
     {
-        if (!base.CompleteEvent())
-        {
-            return false;
-        }
         _player.CanMove = false;
 
         seq.Append(Toast.transform.DOMove(ToastMidPosition.position, ClothesMovingTime/2).SetEase(Ease.InOutQuad))

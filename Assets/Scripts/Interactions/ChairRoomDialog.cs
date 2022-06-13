@@ -3,22 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChairRoomDialog : MonoBehaviour, IInteractable
+public class ChairRoomDialog : Interactable
 {
-
-    public void OnLookedBegin()
+    public override bool OnInteractBegin()
     {
-    }
-    public void OnLookedEnd()
-    {
-
-    }
-    public void OnInteractBegin()
-    {
-        Debug.Log("Me estan Interactuando");
         TextController.Instance.StartDialog("chairRoom_1");
-    }
-    public void OnInteractEnd(){
-
+        return true;
     }
 }

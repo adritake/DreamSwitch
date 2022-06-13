@@ -8,9 +8,9 @@ public class Shower : ChecklistEvent
     public Transform LookAt;
     public ParticleSystem ShowerVFX;
 
-    public override bool CompleteEvent()
+    public override bool OnInteractBegin()
     {
-        if (!base.CompleteEvent())
+        if (!base.OnInteractBegin())
         {
             return false;
         }

@@ -24,9 +24,9 @@ public class ToothBrush : ChecklistEvent
         _initialRotation = transform.rotation;
     }
 
-    public override bool CompleteEvent()
+    public override bool OnInteractBegin()
     {
-        if (!base.CompleteEvent())
+        if (!base.OnInteractBegin())
         {
             return false;
         }

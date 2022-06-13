@@ -10,9 +10,9 @@ public class Wardrobe : ChecklistEvent
     public Transform ClothesEndPosition;
     public float ClothesMovingTime;
 
-    public override bool CompleteEvent()
+    public override bool OnInteractBegin()
     {
-        if (!base.CompleteEvent())
+        if (!base.OnInteractBegin())
         {
             return false;
         }

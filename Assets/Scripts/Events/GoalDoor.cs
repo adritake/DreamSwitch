@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GoalDoor : ChecklistEvent
+public class GoalDoor : Interactable
 {
-    public override bool CompleteEvent()
+    public override bool OnInteractBegin()
     {
         if (LevelChecklistManager.Instance.ListCompleted)
         {

@@ -36,7 +36,7 @@ public class Eyeball : ChecklistEvent
         e_Alarm.setParameterByName("Lower", 1);
     }
 
-    public override bool CompleteEvent()
+    public override bool OnInteractBegin()
     {
         /* if (!base.CompleteEvent())
         {

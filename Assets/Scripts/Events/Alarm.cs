@@ -32,9 +32,9 @@ public class Alarm : ChecklistEvent
         e_Alarm.setParameterByName("Lower", 1);
     }
 
-    public override bool CompleteEvent()
+    public override bool OnInteractBegin()
     {
-        if (!base.CompleteEvent())
+        if (!base.OnInteractBegin())
         {
             return false;
         }

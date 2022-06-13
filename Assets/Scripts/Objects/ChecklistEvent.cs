@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ChecklistEvent : MonoBehaviour, IInteractable
+public abstract class ChecklistEvent : Interactable
 {
     public string EventName;
 
-    private bool _looked;
     private bool _completed;
     protected PlayerController _player;
 
-    protected virtual void Start()
+    protected override void Start()
     {
         _player = FindObjectOfType<PlayerController>();
     }
 
-    public virtual bool CompleteEvent()
+    public override bool OnInteractBegin()
     {
         if (!_completed)
         {
@@ -30,31 +29,11 @@ public abstract class ChecklistEvent : MonoBehaviour, IInteractable
         }
     }
 
-    public virtual void OnInteractBegin()
+    public override void OnLookedBegin()
     {
-    }
-
-    public virtual void OnInteractEnd()
-    {
-    }
-
-    public void OnLookedBegin()
-    {
-        if (!_looked && !_completed)
+        if (!_completed)
         {
-            _looked = true;
-            ReticleUI.Instance.EnableReticle(true);
-            Debug.Log(gameObject.name + " look begin");
-        }
-    }
-
-    public void OnLookedEnd()
-    {
-        if (_looked)
-        {
-            _looked = false;
-            ReticleUI.Instance.EnableReticle(false);
-            Debug.Log(gameObject.name + " look end");
+            base.OnLookedBegin();
         }
     }
 }

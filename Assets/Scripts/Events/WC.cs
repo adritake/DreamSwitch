@@ -8,9 +8,9 @@ public class WC : ChecklistEvent
     public Transform LookPosition;
     public GameObject fish;
 
-    public override bool CompleteEvent()
+    public override bool OnInteractBegin()
     {
-        if (!base.CompleteEvent())
+        if (!base.OnInteractBegin())
         {
             return false;
         }

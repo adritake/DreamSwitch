@@ -9,7 +9,7 @@ public abstract class Interactor : MonoBehaviour
     public float LookDistance;
     public LayerMask InteractableObjectsLayer;
 
-    protected IInteractable _detectedObject;
+    protected Interactable _detectedObject;
     protected bool _isObjectDetected;
 
     private void Update()
@@ -27,7 +27,7 @@ public abstract class Interactor : MonoBehaviour
         if (Physics.Raycast(LookStart.position, LookStart.forward, out RaycastHit hitInfo, LookDistance, InteractableObjectsLayer))
         {
             _isObjectDetected = true;
-            _detectedObject = (IInteractable)hitInfo.collider.gameObject.GetComponent(typeof(IInteractable));
+            _detectedObject = (Interactable)hitInfo.collider.gameObject.GetComponent(typeof(Interactable));
             _detectedObject.OnLookedBegin();
         }
         else
