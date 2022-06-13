@@ -53,11 +53,14 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 1
-    - _NoiseScale: 53.4
+    - _DeformationIntensity: 0.05
+    - _DeformationScale: 25.16
+    - _DeformationSpeed: 0.1
+    - _NoiseScale: 37.4
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _BodyColor: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0, g: 0, b: 0, a: 0}
-    - _EyesColor: {r: 0.7490196, g: 0, b: 0, a: 0}
+    - _EyesColor: {r: 271.17407, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
