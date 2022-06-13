@@ -3233,6 +3233,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255733517}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &285305995 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6916608078446398484, guid: e731e6d381654e048a457643d0a346e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 366358752}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &286096245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4188,36 +4194,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 727630549, guid: e731e6d381654e048a457643d0a346e9, type: 3}
-      propertyPath: m_AmplitudeGain
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702781793, guid: e731e6d381654e048a457643d0a346e9, type: 3}
-      propertyPath: dream
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1702781793, guid: e731e6d381654e048a457643d0a346e9, type: 3}
       propertyPath: EyeLids
       value: 
       objectReference: {fileID: 805451808}
     - target: {fileID: 1702781793, guid: e731e6d381654e048a457643d0a346e9, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702781793, guid: e731e6d381654e048a457643d0a346e9, type: 3}
       propertyPath: WakeUpEndPosition
       value: 
       objectReference: {fileID: 195383750}
-    - target: {fileID: 1768941914755181503, guid: e731e6d381654e048a457643d0a346e9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.000011444092
-      objectReference: {fileID: 0}
-    - target: {fileID: 1768941914755181503, guid: e731e6d381654e048a457643d0a346e9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.000011444092
-      objectReference: {fileID: 0}
     - target: {fileID: 8547126922681199569, guid: e731e6d381654e048a457643d0a346e9,
         type: 3}
       propertyPath: m_Name
@@ -10159,6 +10143,11 @@ PrefabInstance:
       propertyPath: ToastEndPosition
       value: 
       objectReference: {fileID: 366358753}
+    - target: {fileID: 5341102918665354195, guid: 4898c73b4a111c74594841dbc23f5d7c,
+        type: 3}
+      propertyPath: ToastMidPosition
+      value: 
+      objectReference: {fileID: 285305995}
     - target: {fileID: 5341102918665354197, guid: 4898c73b4a111c74594841dbc23f5d7c,
         type: 3}
       propertyPath: m_Name
@@ -16206,29 +16195,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b24842a490d563147b84ecbf56744ae1, type: 3}
---- !u!1 &1405768310 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8547126922681199569, guid: e731e6d381654e048a457643d0a346e9,
-    type: 3}
-  m_PrefabInstance: {fileID: 366358752}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1405768320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405768310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bb9b3e07ee4e1b49be8f61b28710b16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LookStart: {fileID: 1936101796}
-  LookDistance: 3
-  InteractableObjectsLayer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1 &1407003562
 GameObject:
   m_ObjectHideFlags: 0
