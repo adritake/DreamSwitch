@@ -5,7 +5,6 @@ using DG.Tweening;
 
 public class WakeUp : MonoBehaviour
 {
-    public DreamNumber dream;
     public Eyelids EyeLids;
     public Transform WakeUpEndPosition;
     public Vector3 WakeUpStartRotation = new Vector3(-90, 0, 0);
@@ -22,11 +21,11 @@ public class WakeUp : MonoBehaviour
         _playerController = GetComponent<PlayerController>();
         InitiatePlayer();
 
-        if(dream == DreamNumber.Dream1)
+        if(DreamLevel.Instance.level == DreamNumber.Dream1)
         {
             StartCoroutine(WakeUpPlayer());
         }
-        if(dream == DreamNumber.Dream2)
+        if(DreamLevel.Instance.level == DreamNumber.Dream2)
         {
             StartCoroutine(WakeUpPlayer2());
         }

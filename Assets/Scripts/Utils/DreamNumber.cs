@@ -1,1 +1,0 @@
-public enum DreamNumber{ Dream1, Dream2, Dream3, Dream4, Dream5 }
