@@ -390,7 +390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b96918ee749449b4eafd9e54ff11d20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventName: Radio
   songBPM: 105
 --- !u!23 &25442101
 MeshRenderer:
@@ -4198,6 +4197,10 @@ PrefabInstance:
       propertyPath: EyeLids
       value: 
       objectReference: {fileID: 805451808}
+    - target: {fileID: 1702781793, guid: e731e6d381654e048a457643d0a346e9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1702781793, guid: e731e6d381654e048a457643d0a346e9, type: 3}
       propertyPath: WakeUpEndPosition
       value: 
@@ -22102,12 +22105,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1929244656}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1936101796 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1768941914755181503, guid: e731e6d381654e048a457643d0a346e9,
-    type: 3}
-  m_PrefabInstance: {fileID: 366358752}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1938372619
 GameObject:
   m_ObjectHideFlags: 0
@@ -23307,7 +23304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EventName: Eyeball
-  player: {fileID: 1936101796}
+  LookSpeed: 40
 --- !u!4 &2063468551 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3626c1610f3e16349aa6db77c3991ac5,

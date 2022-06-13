@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class Eyeball : ChecklistEvent
 {
-    public Transform player;
+    public float LookSpeed;
 
     FMOD.Studio.EventInstance e_Alarm;
 
@@ -28,7 +28,9 @@ public class Eyeball : ChecklistEvent
 
     void Update()
     {
-        transform.LookAt(player);
+        Quaternion targetRotation = Quaternion.LookRotation(_player.PlayerCamera.transform.position - transform.position);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation,
+             targetRotation, LookSpeed * Time.deltaTime);
     }
 
     public void LowerAlarm()
