@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{486f4b9b-9a76-4c4f-a8c3-ff9cb442164d}">
+		<property name="name">
+			<value>Distortion</value>
+		</property>
+		<relationship name="folder">
+			<destination>{c17fe7a6-a31b-4794-905d-e157f758d726}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{dbc90861-13e5-42c5-b9fd-fe11c1282eeb}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{dbc90861-13e5-42c5-b9fd-fe11c1282eeb}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="velocity">
+			<value>0.14000000059604645</value>
+		</property>
+	</object>
+</objects>

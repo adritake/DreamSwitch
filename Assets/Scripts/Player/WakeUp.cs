@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class WakeUp : MonoBehaviour
 {
+    public DreamNumber dream;
     public Eyelids EyeLids;
     public Transform WakeUpEndPosition;
     public Vector3 WakeUpStartRotation = new Vector3(-90, 0, 0);
@@ -20,7 +21,15 @@ public class WakeUp : MonoBehaviour
     {
         _playerController = GetComponent<PlayerController>();
         InitiatePlayer();
-        StartCoroutine(WakeUpPlayer());
+
+        if(dream == DreamNumber.Dream1)
+        {
+            StartCoroutine(WakeUpPlayer());
+        }
+        if(dream == DreamNumber.Dream2)
+        {
+            StartCoroutine(WakeUpPlayer2());
+        }
     }
 
     private void InitiatePlayer()
@@ -39,6 +48,24 @@ public class WakeUp : MonoBehaviour
         TextController.Instance.StartDialog("wakeUp_1");
         yield return new WaitForSeconds(timeBeforeGetup-1);
         FindObjectOfType<Alarm>().LowerAlarm();
+        Sequence sequence = DOTween.Sequence();
+        sequence.AppendInterval(2);
+        sequence.Append(transform.DORotate(WakeUpEndRotation, WakeUpTime));
+        sequence.Join(transform.DOMove(WakeUpEndPosition.position, WakeUpTime));
+        sequence.AppendCallback(() => _playerController.CanMove = true);
+
+        sequence.Play();
+    }
+
+    private IEnumerator WakeUpPlayer2()
+    {
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/Wakeup", gameObject);
+        yield return new WaitForSeconds(timeBeforeWakeup);
+        EyeLids.OpenEyes();
+        yield return new WaitForSeconds(1);
+        TextController.Instance.StartDialog("wakeUp_1");
+        yield return new WaitForSeconds(timeBeforeGetup-1);
+        FindObjectOfType<Eyeball>().LowerAlarm();
         Sequence sequence = DOTween.Sequence();
         sequence.AppendInterval(2);
         sequence.Append(transform.DORotate(WakeUpEndRotation, WakeUpTime));
