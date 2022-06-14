@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -150,10 +151,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void LookAt(Vector3 position)
+    public void ForcePosture(Vector3 position, Vector3 lookTarget, float time)
     {
-        transform.LookAt(new Vector3(position.x, transform.position.y, position.z));
-        PlayerCamera.transform.LookAt(position);
+        transform.DOMove(position, time);
+        StartCoroutine(LookingAtCoroutine(lookTarget, time));
+    }
+
+    private IEnumerator LookingAtCoroutine(Vector3 lookTarget, float time)
+    {
+        float startTime = Time.time;
+        while(startTime + time > Time.time)
+        {
+            transform.LookAt(new Vector3(lookTarget.x, transform.position.y, lookTarget.z));
+            PlayerCamera.transform.LookAt(lookTarget);
+            yield return null;
+        }
     }
 
     private void OnDrawGizmosSelected()

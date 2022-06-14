@@ -7,12 +7,14 @@ public class TV : ChecklistEvent
     public float WatchTime;
     public Renderer TVScreen;
     public Transform LookAt;
+    public Transform LookFromPosition;
+    public float LookTime;
 
 
     public override bool OnInteractBegin()
     {
         _player.CanMove = false;
-        _player.LookAt(LookAt.position);
+        _player.ForcePosture(LookFromPosition.position, LookAt.position, LookTime);
         TurnOnTv(true);
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/TVStatic", gameObject);
         Invoke(nameof(EndEvent), WatchTime);
