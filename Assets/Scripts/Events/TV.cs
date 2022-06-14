@@ -15,10 +15,16 @@ public class TV : ChecklistEvent
     {
         _player.CanMove = false;
         _player.ForcePosture(LookFromPosition.position, LookAt.position, LookTime);
+        Invoke(nameof(PlayTv), LookTime);
+        
+        return true;
+    }
+
+    private void PlayTv()
+    {
         TurnOnTv(true);
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/TVStatic", gameObject);
         Invoke(nameof(EndEvent), WatchTime);
-        return true;
     }
 
     private void EndEvent()

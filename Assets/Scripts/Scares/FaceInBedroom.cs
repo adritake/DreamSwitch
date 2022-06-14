@@ -7,6 +7,9 @@ public class FaceInBedroom : MonoBehaviour
 {
     public GameObject face;
 
+    public Renderer shadow;
+    public Renderer deform;
+
     Sequence seq;
 
     void Start()
@@ -20,7 +23,7 @@ public class FaceInBedroom : MonoBehaviour
             .SetLoops(-1)
             .Play();
             
-        Invoke("GoAway", 10);
+        Invoke("GoAway", 9);
     }
 
     void Update()
@@ -32,8 +35,11 @@ public class FaceInBedroom : MonoBehaviour
     {
         seq.Kill();
 
-        face.transform.DOMoveX(-5, 2f).SetRelative().OnComplete(() => {
+        shadow.material.DOFloat(0, "_Alpha", 0.5f);
+        deform.material.DOFloat(0, "_Alpha", 0.5f);
+        
+        /* face.transform.DOMoveX(-5, 2f).SetRelative().OnComplete(() => {
             Destroy(gameObject);
-        });
+        }); */
     }
 }

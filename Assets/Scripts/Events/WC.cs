@@ -18,7 +18,13 @@ public class WC : ChecklistEvent
         }
         _player.CanMove = false;
         _player.ForcePosture(PeePosition.position, LookPosition.position, LookTime);
+        Invoke(nameof(PlayWC), LookTime);
+        
+        return true;
+    }
 
+    private void PlayWC()
+    {
         if(DreamLevel.Instance.level == DreamNumber.Dream1)
         {
             Invoke(nameof(PeeStandard), LookTime);
@@ -28,7 +34,6 @@ public class WC : ChecklistEvent
             Invoke(nameof(PeeFish), PeeTime/2);
         }
         Invoke(nameof(ReleasePlayer), PeeTime);
-        return true;
     }
 
     private void PeeStandard()

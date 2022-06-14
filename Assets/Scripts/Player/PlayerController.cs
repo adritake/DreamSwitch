@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
 
         e_Steps = FMODUnity.RuntimeManager.CreateInstance("event:/Sfx/General/Steps");
+        e_Steps.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     }
 
     void Update()

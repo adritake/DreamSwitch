@@ -16,12 +16,19 @@ public class Shower : ChecklistEvent
         {
             return false;
         }
+        
         _player.CanMove = false;
+        _player.ForcePosture(ShoweringPosition.position, LookAt.position, LookTime);
+        Invoke(nameof(PlayShower), LookTime);
+
+        return true;
+    }
+
+    private void PlayShower()
+    {
         ShowerVFX.Play();
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/Shower", gameObject);
-        _player.ForcePosture(ShoweringPosition.position, LookAt.position, LookTime);
         Invoke(nameof(EndEvent), ShowerTime);
-        return true;
     }
 
     private void EndEvent()
