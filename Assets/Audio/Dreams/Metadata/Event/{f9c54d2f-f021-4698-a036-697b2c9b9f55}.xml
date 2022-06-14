@@ -256,7 +256,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>-5</value>
+			<value>-10</value>
 		</property>
 	</object>
 	<object class="AutomationCurve" id="{793276d6-c765-4b1b-9632-218213366ff2}">
