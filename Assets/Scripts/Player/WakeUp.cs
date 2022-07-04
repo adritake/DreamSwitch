@@ -46,6 +46,7 @@ public class WakeUp : MonoBehaviour
         yield return new WaitForSeconds(1);
         TextController.Instance.StartDialog("wakeUp_1");
         yield return new WaitForSeconds(timeBeforeGetup-1);
+        BGMManager.Instance.Play();
         FindObjectOfType<Alarm>().LowerAlarm();
         Sequence sequence = DOTween.Sequence();
         sequence.AppendInterval(2);

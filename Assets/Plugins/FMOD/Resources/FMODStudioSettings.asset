@@ -58,7 +58,7 @@ MonoBehaviour:
     CallbackHandler:
       Value: {fileID: 0}
       HasValue: 0
-  OutputTypeName: 
+  OutputTypeName: AUTODETECT
   threadAffinities:
     Value: []
     HasValue: 0
@@ -318,8 +318,9 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     Plugins:
-      Value: []
-      HasValue: 0
+      Value:
+      - resonanceaudio
+      HasValue: 1
     StaticPlugins:
       Value: []
       HasValue: 0
@@ -858,11 +859,13 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     Plugins:
-      Value:
-      - resonanceaudio
+      Value: []
       HasValue: 1
     StaticPlugins:
-      Value: []
+      Value:
+      - FMOD_ResonanceAudioSource_GetDSPDescription
+      - FMOD_ResonanceAudioSoundfield_GetDSPDescription
+      - FMOD_ResonanceAudioListener_GetDSPDescription
       HasValue: 1
     CallbackHandler:
       Value: {fileID: 0}
