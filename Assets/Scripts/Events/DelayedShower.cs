@@ -6,15 +6,11 @@ public class DelayedShower : ChecklistEvent
     public Transform LookAt;
     public Transform ShoweringPosition;
     public float LookTime;
+    public PlayerTrigger StartShowerSoundTrigger;
+    public PlayerTrigger EndShowerSoundTrigger;
 
-    private PlayerTrigger _showerTrigger;
     private bool _interactedOnce;
-
-    protected override void Start()
-    {
-        base.Start();
-        _showerTrigger = GetComponentInChildren<PlayerTrigger>();
-    }
+    private bool _soundPlaying;
 
     private void Update()
     {
@@ -23,10 +19,17 @@ public class DelayedShower : ChecklistEvent
 
     private void CheckShowerTrigger()
     {
-        if (_showerTrigger.IsTriggered && _interactedOnce)
+        if (StartShowerSoundTrigger.IsTriggered && _interactedOnce)
         {
+            _soundPlaying = true;
             FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Sfx/Loop1/Shower", gameObject);
             base.OnInteractBegin();
+        }
+
+        if (EndShowerSoundTrigger.IsTriggered && _soundPlaying)
+        {
+            _soundPlaying = false;
+            // STOP SHOWER SOUND
         }
     }
 

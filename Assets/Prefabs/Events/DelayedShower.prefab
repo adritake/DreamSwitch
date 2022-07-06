@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 416869344}
   - component: {fileID: 416869343}
   m_Layer: 0
-  m_Name: ShowerTrigger
+  m_Name: StartShowerSoundTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,6 +53,64 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416869341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e02b024edfd9e7419ffdce7def9f278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &544226320008842565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3983674586507979815}
+  - component: {fileID: 8771233855725495663}
+  - component: {fileID: 3822386924174783541}
+  m_Layer: 0
+  m_Name: StopShowerSoundTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3983674586507979815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544226320008842565}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.94, y: 2.11, z: 14.38}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8856158476781772412}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8771233855725495663
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544226320008842565}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4.105833, z: 7.5686226}
+  m_Center: {x: 9.885148e-14, y: -0.27972507, z: -1.1086884}
+--- !u!114 &3822386924174783541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544226320008842565}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e02b024edfd9e7419ffdce7def9f278, type: 3}
@@ -5130,6 +5188,7 @@ Transform:
   - {fileID: 682252152520174513}
   - {fileID: 2844369428716203771}
   - {fileID: 416869342}
+  - {fileID: 3983674586507979815}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5163,3 +5222,5 @@ MonoBehaviour:
   LookAt: {fileID: 682252152520174513}
   ShoweringPosition: {fileID: 2844369428716203771}
   LookTime: 0.5
+  StartShowerSoundTrigger: {fileID: 416869343}
+  EndShowerSoundTrigger: {fileID: 3822386924174783541}
