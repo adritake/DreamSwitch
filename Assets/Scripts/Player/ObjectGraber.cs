@@ -7,13 +7,13 @@ public class ObjectGraber : Interactor
     [Header("Graber")]
     public Transform GrabPlace;
     public float GrabSpeed;
+    public GrabableObject GrabedObject => _grabedObject;
 
     private GrabableObject _grabedObject;
     private bool _isObjectGrabed;
 
     void Update()
     {
-        UseObject();
         GrabObject();
     }
 
@@ -35,26 +35,6 @@ public class ObjectGraber : Interactor
             StartCoroutine(MoveToGrabPlaceCoroutine());
         }
     }
- 
-    private void UseObject()
-    {
-        bool pressedInteract;
-
-        #if !UNITY_EDITOR && UNITY_SWITCH
-            pressedInteract = InputSystem.Instance.switchButtons.A;
-        #else
-            pressedInteract = Input.GetKeyDown(KeyCode.E);
-        #endif
-
-        if (pressedInteract && _isObjectGrabed)
-        {
-            _grabedObject.OnInteractEnd();
-            _isObjectGrabed = false;
-            Debug.Log("Object used");
-
-            _grabedObject.transform.parent = null;
-        }
-    }
 
     private IEnumerator MoveToGrabPlaceCoroutine()
     {
@@ -69,5 +49,12 @@ public class ObjectGraber : Interactor
         }
         _grabedObject.transform.LookAt(Camera.main.transform);
         _grabedObject.transform.parent = GrabPlace;
+    }
+
+    public void DeleteGrabedObject()
+    {
+        Destroy(_grabedObject.gameObject);
+        _grabedObject = null;
+        _isObjectGrabed = false;
     }
 }

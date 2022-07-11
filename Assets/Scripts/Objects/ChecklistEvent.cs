@@ -6,7 +6,7 @@ public abstract class ChecklistEvent : Interactable
 {
     public string EventName;
 
-    private bool _completed;
+    protected bool _completed;
     protected PlayerController _player;
 
     protected override void Start()

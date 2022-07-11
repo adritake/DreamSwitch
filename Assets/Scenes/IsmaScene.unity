@@ -417,24 +417,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 13569555}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &13569557 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8732150915358151839, guid: d12a740872f8cc046bb78c9d238595c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 13569555}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &13569558 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 5481517105649255452, guid: d12a740872f8cc046bb78c9d238595c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 13569555}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &13569559 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 8732150915358151837, guid: d12a740872f8cc046bb78c9d238595c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 13569555}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &25442098
 GameObject:
   m_ObjectHideFlags: 0
@@ -6005,9 +5987,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EventName: CeilingFan
-  blade1: {fileID: 529591002}
-  blade2: {fileID: 529591001}
-  blade3: {fileID: 529591000}
+  Blade1: {fileID: 529591002}
+  Blade2: {fileID: 529591001}
+  Blade3: {fileID: 529591000}
 --- !u!65 &529591008
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6394,9 +6376,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb30b339e4704243afbf3be3534f501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  face: {fileID: 13569557}
-  shadow: {fileID: 13569559}
-  deform: {fileID: 13569558}
+  Shadow: {fileID: 0}
+  Deform: {fileID: 0}
+  VanishTime: 0
+  VanishDuration: 0
 --- !u!1 &555915089
 GameObject:
   m_ObjectHideFlags: 0
