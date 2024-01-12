@@ -1,0 +1,2 @@
+- Para salir del bucle tienes que hacer algo fuera de la lista
+- Meter lowpass a la musica al entrar en hab silla

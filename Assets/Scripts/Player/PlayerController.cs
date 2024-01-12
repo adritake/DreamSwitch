@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Look")]
     public Camera PlayerCamera;
-    public float LookSpeed = 2.0f;
+    public float LookSpeed = 1.0f;
     public float LookXLimit = 45.0f;
 
     private CharacterController _characterController;
@@ -68,19 +68,10 @@ public class PlayerController : MonoBehaviour
         float curSpeedX;
         float curSpeedY;
 
-#if !UNITY_EDITOR && UNITY_SWITCH
-        {
-            curSpeedX = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputSystem.Instance.switchButtons.StickLY : 0;
-            curSpeedY = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputSystem.Instance.switchButtons.StickLX : 0;
-        }
-#else
-        {
-            curSpeedX = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Vertical") : 0;
-            curSpeedY = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * Input.GetAxis("Horizontal") : 0;
-        }
-#endif
+        curSpeedX = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputManager.Instance.Movement().x : 0;
+        curSpeedY = _canMove ? (isRunning ? RunningSpeed : WalkingSpeed) * InputManager.Instance.Movement().y : 0;
 
-        _moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+        _moveDirection = (right * curSpeedX) + (forward * curSpeedY);
 
         if (_moveDirection.x != 0 || _moveDirection.y != 0)
         {
@@ -112,27 +103,12 @@ public class PlayerController : MonoBehaviour
     {
         if (_canMove)
         {
-#if !UNITY_EDITOR && UNITY_SWITCH
-        {
-            _rotationX += -InputSystem.Instance.switchButtons.StickRY * LookSpeed * Time.deltaTime;
-        }
-#else
-            {
-                _rotationX += -Input.GetAxis("Mouse Y") * LookSpeed * Time.deltaTime;
-            }
-#endif
+            _rotationX += -InputManager.Instance.Camera().y * LookSpeed * Time.deltaTime;
+            
             _rotationX = Mathf.Clamp(_rotationX, -LookXLimit, LookXLimit);
             PlayerCamera.transform.localRotation = Quaternion.Euler(_rotationX, 0, 0);
 
-#if !UNITY_EDITOR && UNITY_SWITCH
-        {
-            transform.rotation *= Quaternion.Euler(0, InputSystem.Instance.switchButtons.StickRX * LookSpeed * Time.deltaTime, 0);
-        }
-#else
-            {
-                transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * LookSpeed * Time.deltaTime, 0);
-            }
-#endif
+            transform.rotation *= Quaternion.Euler(0, InputManager.Instance.Camera().x * LookSpeed * Time.deltaTime, 0);
         }
     }
 

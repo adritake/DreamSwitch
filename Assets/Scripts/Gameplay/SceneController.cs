@@ -15,10 +15,10 @@ public class SceneController : Singleton<SceneController>
 
     void Update()
     {
-        if(debugMode && InputSystem.Instance.switchButtons.Down == true)
+        /*if(debugMode && InputSystem.Instance.switchButtons.Down == true)
         {
             ReloadScene();
-        }
+        }*/
     }
 
     public void ReloadScene()
