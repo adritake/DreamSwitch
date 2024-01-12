@@ -9,19 +9,10 @@ using UnityEngine.SceneManagement;
 
 public class InputManager: Singleton<InputManager>
 {
-    public InputController activeInputController;
     private InputActions input;
-    
-    public delegate void OnInputDeviceChangeDelegate();
-    public OnInputDeviceChangeDelegate onInputDeviceChangeDelegate;
 
     private bool isInputActive;
     private bool inSceneCooldown;
-
-    private void Awake()
-    {
-        activeInputController = InputController.Touch;
-    }
 
     private IEnumerator Start()
     {
@@ -34,22 +25,6 @@ public class InputManager: Singleton<InputManager>
         yield return new WaitUntil(() => SplashScreen.isFinished);
         
         isInputActive = true;
-    }
-
-    private void Update()
-    {
-        switch (activeInputController)
-        {
-            case InputController.Touch:
-                Cursor.visible = false;
-                break;
-            case InputController.Mouse:
-                Cursor.visible = true;
-                break;
-            case InputController.Gamepad:
-                Cursor.visible = false;
-                break;
-        }
     }
 
     public void ToggleInput(bool active)
@@ -70,14 +45,25 @@ public class InputManager: Singleton<InputManager>
         
         return input.Player.Movement.ReadValue<Vector2>();
     }
-}
+    
+    public bool TaskMenu()
+    {
+        if (!isInputActive) { return false; }
 
-public enum InputController
-{
-    Gamepad, Touch, Mouse
-}
+        return input.Player.TaskMenu.WasPressedThisFrame();
+    }
+    
+    public bool Interact()
+    {
+        if (!isInputActive) { return false; }
 
-public enum InputTypes
-{
-    WasPressedThisFrame, WasReleasedThisFrame, IsPressed
+        return input.Player.Interact.WasPressedThisFrame();
+    }
+    
+    public Vector2 Camera()
+    {
+        if (!isInputActive) { return new Vector2(); }
+
+        return input.Player.Camera.ReadValue<Vector2>();
+    }
 }

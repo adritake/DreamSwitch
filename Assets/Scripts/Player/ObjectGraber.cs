@@ -24,7 +24,7 @@ public class ObjectGraber : Interactor
         #if !UNITY_EDITOR && UNITY_SWITCH
             pressedInteract = InputSystem.Instance.switchButtons.A;
         #else
-            pressedInteract = Input.GetKeyDown(KeyCode.E);
+        pressedInteract = InputManager.Instance.Interact();
         #endif
 
         if (pressedInteract && !_isObjectGrabed && _isObjectDetected && _detectedObject is GrabableObject)

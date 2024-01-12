@@ -36,11 +36,7 @@ public class EventChecklistUI : MonoBehaviour
     {
         bool pressedOpen;
 
-        #if !UNITY_EDITOR && UNITY_SWITCH
-            pressedOpen = InputSystem.Instance.switchButtons.Minus;
-        #else
-            pressedOpen = Input.GetKeyDown(KeyCode.Q);
-        #endif
+        pressedOpen = InputManager.Instance.TaskMenu();
 
         if (pressedOpen && !_isChecklistMoving)
         {

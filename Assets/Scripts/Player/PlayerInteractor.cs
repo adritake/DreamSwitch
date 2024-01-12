@@ -13,11 +13,7 @@ public class PlayerInteractor : Interactor
     {
         bool pressedInteract;
 
-#if !UNITY_EDITOR && UNITY_SWITCH
-        pressedInteract = InputSystem.Instance.switchButtons.A;
-#else
-        pressedInteract = Input.GetKeyDown(KeyCode.E);
-#endif
+        pressedInteract = InputManager.Instance.Interact();
 
         if (pressedInteract && _isObjectDetected && _detectedObject is Interactable)
         {
